@@ -1,88 +1,84 @@
-"use client";
+'use client'
 
-import { motion } from "framer-motion";
-import {
-  Leaf,
-  FlaskConical,
-  Cpu,
-  Atom,
-  BarChart3,
-  Microscope,
-  Recycle,
-  Waves,
-} from "lucide-react";
+import { motion } from 'framer-motion'
 
 const researchAreas = [
   {
-    icon: Leaf,
-    title: "Biomass Valorization",
+    symbol: '01',
+    title: 'Biomass Valorization',
     description:
-      "Converting agricultural and marine biomass into high-value functional materials for sustainable engineering applications.",
+      'Converting agricultural and marine biomass into high-value functional materials for sustainable engineering applications.',
   },
   {
-    icon: Recycle,
-    title: "Biochar Engineering",
+    symbol: '02',
+    title: 'Biochar Engineering',
     description:
-      "Designing porous biomass-derived carbon materials through pyrolysis and advanced modification strategies.",
+      'Designing porous biomass-derived carbon materials through pyrolysis and advanced modification strategies.',
   },
   {
-    icon: FlaskConical,
-    title: "Electrochemical Sensors",
+    symbol: '03',
+    title: 'Electrochemical Sensors',
     description:
-      "Developing affordable chemical sensors for environmental monitoring and food safety applications.",
+      'Developing affordable chemical sensors for environmental monitoring and food safety applications.',
   },
   {
-    icon: Waves,
-    title: "Environmental Monitoring",
+    symbol: '04',
+    title: 'Environmental Monitoring',
     description:
-      "Detection of heavy metals, nitrogen pollutants, and emerging contaminants in water and agricultural systems.",
+      'Detection of heavy metals, nitrogen pollutants, and emerging contaminants in water and agricultural systems.',
   },
   {
-    icon: Atom,
-    title: "Density Functional Theory",
+    symbol: '05',
+    title: 'Density Functional Theory',
     description:
-      "Applying computational chemistry to investigate adsorption mechanisms and electronic structures of sensing materials.",
+      'Applying computational chemistry to investigate adsorption mechanisms and electronic structures of sensing materials.',
   },
   {
-    icon: BarChart3,
-    title: "Machine Learning",
+    symbol: '06',
+    title: 'Machine Learning',
     description:
-      "Integrating machine learning with electrochemical data and biomass research for predictive analysis.",
+      'Integrating machine learning with electrochemical data and biomass research for predictive analysis.',
   },
   {
-    icon: Microscope,
-    title: "Material Characterization",
+    symbol: '07',
+    title: 'Material Characterization',
     description:
-      "Characterizing functional materials using SEM, FTIR, Raman, XRD, BET, and electrochemical techniques.",
+      'Characterizing functional materials using SEM, FTIR, Raman, XRD, BET, and electrochemical techniques.',
   },
   {
-    icon: Cpu,
-    title: "Sustainable Materials",
+    symbol: '08',
+    title: 'Sustainable Materials',
     description:
-      "Designing environmentally friendly materials for sensing, resource recovery, and future energy storage technologies.",
+      'Designing environmentally friendly materials for sensing, resource recovery, and future energy storage technologies.',
   },
-];
+]
 
 export default function Research() {
   return (
-    <section id="research" className="py-28 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <section
+      id="research"
+      className="bg-gray-50 px-6 py-24 text-gray-900"
+    >
+      <div className="mx-auto max-w-7xl">
+
+        {/* Header */}
 
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          transition={{ duration: 0.5 }}
+          className="mb-20 text-center"
         >
-          <p className="uppercase tracking-[0.3em] text-emerald-600 font-semibold">
+          <p className="font-semibold uppercase tracking-[0.3em] text-emerald-600">
             RESEARCH EXPERTISE
           </p>
 
-          <h2 className="text-5xl font-bold mt-3">
+          <h2 className="mt-3 text-4xl font-bold sm:text-5xl">
             Research Areas
           </h2>
 
-          <p className="max-w-3xl mx-auto mt-6 text-gray-600 leading-8">
+          <p className="mx-auto mt-6 max-w-3xl leading-8 text-gray-600">
             My research combines biomass-derived functional materials,
             electrochemical sensing, computational modeling, and data-driven
             approaches to develop sustainable technologies for environmental
@@ -90,49 +86,40 @@ export default function Research() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Research Cards */}
 
-          {researchAreas.map((item, index) => {
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
 
-            const Icon = item.icon;
+          {researchAreas.map((item, index) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.08 }}
+              whileHover={{ y: -8 }}
+              className="group rounded-3xl border border-gray-200 bg-white p-8 shadow-sm transition duration-300 hover:border-emerald-400 hover:shadow-xl"
+            >
 
-            return (
+              {/* Number */}
 
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
-                whileHover={{
-                  y: -10,
-                }}
-                className="rounded-3xl border border-gray-200 p-8 shadow-sm hover:shadow-xl transition"
-              >
+              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-100 text-lg font-bold text-emerald-700 transition group-hover:bg-emerald-600 group-hover:text-white">
+                {item.symbol}
+              </div>
 
-                <div className="w-14 h-14 rounded-2xl bg-emerald-100 flex items-center justify-center mb-6">
+              <h3 className="mb-4 text-xl font-bold">
+                {item.title}
+              </h3>
 
-                  <Icon className="text-emerald-700 w-7 h-7" />
+              <p className="leading-7 text-gray-600">
+                {item.description}
+              </p>
 
-                </div>
-
-                <h3 className="text-xl font-bold mb-4">
-                  {item.title}
-                </h3>
-
-                <p className="text-gray-600 leading-7">
-                  {item.description}
-                </p>
-
-              </motion.div>
-
-            );
-
-          })}
+            </motion.div>
+          ))}
 
         </div>
-
       </div>
     </section>
-  );
+  )
 }
