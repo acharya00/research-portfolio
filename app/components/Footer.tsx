@@ -100,14 +100,16 @@ export default function Footer() {
           </div>
 
 
-          {/* ================= PROFESSIONAL ================= */}
+          {/* ================= ACADEMIC & PROFESSIONAL ================= */}
 
           <div>
             <h4 className="font-semibold text-white">
-              Professional
+              Academic & Professional
             </h4>
 
             <div className="mt-5 space-y-3 text-sm text-gray-400">
+
+              {/* LINKEDIN */}
 
               <a
                 href="https://www.linkedin.com/in/dilli-ram-acharya"
@@ -118,23 +120,32 @@ export default function Footer() {
                 LinkedIn
               </a>
 
-              <a
-                href="https://github.com/acharya00"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block transition hover:text-cyan-400"
-              >
-                GitHub
-              </a>
+
+              {/* RESEARCHGATE */}
 
               <a
-                href="https://orcid.org/0009-0007-1035-5461"
+                href="https://www.researchgate.net/profile/Dilli-Acharya?ev=hdr_xprf&_sg=2zwrOiO3oSm4NP_32vbxC6IATbjfyMCwViMed-8vbpRtrP0i0LGm71IRvwuAZA_XSO7lKGBA9mXuoc04E6IyJ16t"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block transition hover:text-cyan-400"
               >
-                ORCID
+                ResearchGate
               </a>
+
+
+              {/* GOOGLE SCHOLAR */}
+
+              <a
+                href="https://scholar.google.com/citations?user=je6n7bYAAAAJ&hl=en&authuser=3"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block transition hover:text-cyan-400"
+              >
+                Google Scholar
+              </a>
+
+
+              {/* EMAIL */}
 
               <a
                 href="mailto:dilliacharya63@gmail.com"

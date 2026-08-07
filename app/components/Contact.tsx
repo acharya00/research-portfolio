@@ -10,14 +10,14 @@ const contactLinks = [
     href: "https://www.linkedin.com/in/dilli-ram-acharya",
   },
   {
-    label: "GitHub",
-    value: "acharya00",
-    href: "https://github.com/acharya00",
+    label: "ResearchGate",
+    value: "Dilli Ram Acharya",
+    href: "https://www.researchgate.net/profile/Dilli-Acharya",
   },
   {
-    label: "ORCID",
-    value: "0009-0007-1035-5461",
-    href: "https://orcid.org/0009-0007-1035-5461",
+    label: "Google Scholar",
+    value: "Dilli Ram Acharya",
+    href: "https://scholar.google.com/citations?user=je6n7bYAAAAJ&hl=en",
   },
 ];
 

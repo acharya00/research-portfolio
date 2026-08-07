@@ -141,21 +141,21 @@ export default function Hero() {
             </a>
 
             <a
-              href="https://github.com/acharya00"
+              href="https://www.researchgate.net/profile/Dilli-Acharya"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-lg border border-slate-700 px-4 py-2 text-sm text-gray-300 transition hover:border-cyan-400 hover:text-cyan-400"
             >
-              GitHub
+              ResearchGate
             </a>
 
             <a
-              href="https://orcid.org/0009-0007-1035-5461"
+              href="https://scholar.google.com/citations?user=je6n7bYAAAAJ&hl=en"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-lg border border-slate-700 px-4 py-2 text-sm text-gray-300 transition hover:border-cyan-400 hover:text-cyan-400"
             >
-              ORCID
+              Google Scholar
             </a>
 
             <a
