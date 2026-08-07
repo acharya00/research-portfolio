@@ -1,115 +1,286 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
+import {
+  Mail,
+  MapPin,
+  Linkedin,
+  Github,
+  ExternalLink,
+  Send,
+} from "lucide-react";
 
-const Contact = () => {
+const contactLinks = [
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    value: "Dilli Ram Acharya",
+    href: "https://www.linkedin.com/in/dilli-ram-acharya",
+  },
+  {
+    icon: Github,
+    label: "GitHub",
+    value: "acharya00",
+    href: "https://github.com/acharya00",
+  },
+  {
+    icon: ExternalLink,
+    label: "ORCID",
+    value: "0009-0007-1035-5461",
+    href: "https://orcid.org/0009-0007-1035-5461",
+  },
+];
+
+export default function Contact() {
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-white via-emerald-50/30 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="contact"
+      className="bg-white py-24 sm:py-28"
+    >
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+
+        {/* HEADER */}
+
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mx-auto mb-16 max-w-3xl text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-            Get in Touch
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-600">
+            Contact
+          </p>
+
+          <h2 className="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            Let's Connect
           </h2>
-          <div className="h-1 w-20 bg-gradient-to-r from-emerald-500 to-emerald-700 mx-auto rounded-full mb-12"></div>
 
-          <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-            <div>
-              <div className="space-y-4">
-                <div className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-                  <p className="text-sm text-gray-500 font-medium uppercase tracking-wider">📧 Email</p>
-                  <p className="font-medium text-gray-900 text-lg">dilli.ram@njau.edu.cn</p>
-                </div>
-                <div className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-                  <p className="text-sm text-gray-500 font-medium uppercase tracking-wider">📍 Location</p>
-                  <p className="font-medium text-gray-900 text-lg">Nanjing Agricultural University, China</p>
-                </div>
-                <div className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-                  <p className="text-sm text-gray-500 font-medium uppercase tracking-wider">🔬 Research</p>
-                  <p className="font-medium text-gray-900 text-lg">Electrochemical Sensors & Biochar</p>
-                </div>
-              </div>
-
-              <div className="mt-8">
-                <h4 className="font-semibold mb-4 text-gray-700 text-lg">Connect with me</h4>
-                <div className="flex gap-3 flex-wrap">
-                  <a href="#" className="px-5 py-2.5 bg-white border border-gray-200 rounded-full hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-300 text-gray-700 font-medium shadow-sm hover:shadow-md">
-                    💼 LinkedIn
-                  </a>
-                  <a href="#" className="px-5 py-2.5 bg-white border border-gray-200 rounded-full hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-300 text-gray-700 font-medium shadow-sm hover:shadow-md">
-                    🐙 GitHub
-                  </a>
-                  <a href="#" className="px-5 py-2.5 bg-white border border-gray-200 rounded-full hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-300 text-gray-700 font-medium shadow-sm hover:shadow-md">
-                    📊 ResearchGate
-                  </a>
-                  <a href="#" className="px-5 py-2.5 bg-white border border-gray-200 rounded-full hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-300 text-gray-700 font-medium shadow-sm hover:shadow-md">
-                    🎓 Google Scholar
-                  </a>
-                </div>
-              </div>
-
-              <div className="mt-8">
-                <a
-                  href="#"
-                  className="inline-flex items-center px-6 py-3 bg-emerald-700 text-white rounded-full hover:bg-emerald-800 transition-all duration-300 font-medium shadow-lg shadow-emerald-200 hover:shadow-emerald-300 hover:-translate-y-0.5"
-                >
-                  📄 Download CV
-                </a>
-              </div>
-            </div>
-
-            <form className="space-y-4 bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Your Name *</label>
-                <input
-                  type="text"
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all bg-gray-50 hover:bg-white"
-                  placeholder="John Doe"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Your Email *</label>
-                <input
-                  type="email"
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all bg-gray-50 hover:bg-white"
-                  placeholder="john@example.com"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
-                <input
-                  type="text"
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all bg-gray-50 hover:bg-white"
-                  placeholder="Research Collaboration"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Message *</label>
-                <textarea
-                  rows={4}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all resize-none bg-gray-50 hover:bg-white"
-                  placeholder="Describe your query or opportunity here..."
-                  required
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-emerald-700 text-white rounded-xl hover:bg-emerald-800 transition-all duration-300 font-medium shadow-lg shadow-emerald-200 hover:shadow-emerald-300"
-              >
-                ✉️ Send Message
-              </button>
-            </form>
-          </div>
+          <p className="mt-6 text-lg leading-8 text-gray-600">
+            I am open to research collaboration, academic discussion,
+            scientific exchange, and opportunities related to sustainable
+            materials, electrochemical sensing, environmental monitoring,
+            and computational research.
+          </p>
         </motion.div>
+
+        {/* CONTENT */}
+
+        <div className="grid gap-10 lg:grid-cols-5">
+
+          {/* LEFT */}
+
+          <motion.div
+            initial={{ opacity: 0, x: -25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="lg:col-span-2"
+          >
+            <div className="rounded-3xl border border-gray-200 bg-gray-50 p-8 sm:p-10">
+
+              <h3 className="text-2xl font-bold text-gray-900">
+                Contact Information
+              </h3>
+
+              <p className="mt-4 leading-7 text-gray-600">
+                For research collaboration, academic communication, or
+                professional inquiries, feel free to contact me through
+                email or any of the platforms below.
+              </p>
+
+              {/* EMAIL */}
+
+              <a
+                href="mailto:dilliacharya63@gmail.com"
+                className="mt-8 flex items-start gap-4 group"
+              >
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white border border-gray-200 text-emerald-600 group-hover:border-emerald-300">
+                  <Mail size={20} />
+                </div>
+
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+                    Email
+                  </p>
+
+                  <p className="mt-1 break-all font-medium text-gray-800 group-hover:text-emerald-600">
+                    dilliacharya63@gmail.com
+                  </p>
+                </div>
+              </a>
+
+              {/* LOCATION */}
+
+              <div className="mt-6 flex items-start gap-4">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white border border-gray-200 text-emerald-600">
+                  <MapPin size={20} />
+                </div>
+
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+                    Location
+                  </p>
+
+                  <p className="mt-1 font-medium text-gray-800">
+                    Nanjing, Jiangsu, China
+                  </p>
+                </div>
+              </div>
+
+              {/* SOCIAL LINKS */}
+
+              <div className="mt-8 space-y-3">
+                {contactLinks.map((link) => {
+                  const Icon = link.icon;
+
+                  return (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-4 transition hover:border-emerald-300 hover:shadow-sm"
+                    >
+                      <Icon
+                        size={20}
+                        className="text-emerald-600"
+                      />
+
+                      <div>
+                        <p className="text-xs text-gray-500">
+                          {link.label}
+                        </p>
+
+                        <p className="font-medium text-gray-800">
+                          {link.value}
+                        </p>
+                      </div>
+                    </a>
+                  );
+                })}
+              </div>
+
+            </div>
+          </motion.div>
+
+          {/* RIGHT */}
+
+          <motion.div
+            initial={{ opacity: 0, x: 25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="lg:col-span-3"
+          >
+            <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm sm:p-10">
+
+              <h3 className="text-2xl font-bold text-gray-900">
+                Send a Message
+              </h3>
+
+              <p className="mt-3 text-gray-600">
+                Have a research idea or collaboration opportunity?
+                I'd be happy to hear from you.
+              </p>
+
+              <form
+                action="mailto:dilliacharya63@gmail.com"
+                method="post"
+                encType="text/plain"
+                className="mt-8 space-y-6"
+              >
+
+                <div className="grid gap-6 sm:grid-cols-2">
+
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="text-sm font-semibold text-gray-700"
+                    >
+                      Name
+                    </label>
+
+                    <input
+                      id="name"
+                      name="Name"
+                      type="text"
+                      required
+                      className="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 outline-none transition focus:border-emerald-500"
+                      placeholder="Your name"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="text-sm font-semibold text-gray-700"
+                    >
+                      Email
+                    </label>
+
+                    <input
+                      id="email"
+                      name="Email"
+                      type="email"
+                      required
+                      className="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 outline-none transition focus:border-emerald-500"
+                      placeholder="your@email.com"
+                    />
+                  </div>
+
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="subject"
+                    className="text-sm font-semibold text-gray-700"
+                  >
+                    Subject
+                  </label>
+
+                  <input
+                    id="subject"
+                    name="Subject"
+                    type="text"
+                    required
+                    className="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 outline-none transition focus:border-emerald-500"
+                    placeholder="Research collaboration"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="text-sm font-semibold text-gray-700"
+                  >
+                    Message
+                  </label>
+
+                  <textarea
+                    id="message"
+                    name="Message"
+                    rows={6}
+                    required
+                    className="mt-2 w-full resize-none rounded-xl border border-gray-200 px-4 py-3 outline-none transition focus:border-emerald-500"
+                    placeholder="Write your message..."
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="inline-flex items-center gap-2 rounded-xl bg-gray-900 px-6 py-3.5 font-semibold text-white transition hover:-translate-y-0.5 hover:bg-emerald-600"
+                >
+                  <Send size={18} />
+                  Send Message
+                </button>
+
+              </form>
+
+            </div>
+          </motion.div>
+
+        </div>
+
       </div>
     </section>
-  )
+  );
 }
-
-export default Contact

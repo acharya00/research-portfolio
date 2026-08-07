@@ -4,168 +4,207 @@ import { motion } from "framer-motion";
 import {
   FlaskConical,
   Microscope,
-  Leaf,
-  Atom,
-  BrainCircuit,
-  Code2,
+  Cpu,
   BookOpen,
-  CheckCircle2,
 } from "lucide-react";
 
-const skills = [
+const skillGroups = [
   {
-    title: "Electrochemical Techniques",
     icon: FlaskConical,
-    items: [
-      "Cyclic Voltammetry (CV)",
-      "Differential Pulse Voltammetry (DPV)",
-      "Square Wave Voltammetry (SWV)",
-      "Electrochemical Impedance Spectroscopy (EIS)",
-      "Electrochemical Sensor Fabrication",
+    title: "Research & Experimental",
+    description:
+      "Experimental research methods and material development relevant to sustainable environmental sensing.",
+    skills: [
+      "Electrochemical Sensing",
+      "Biochar Engineering",
+      "Biomass Valorization",
+      "Sensor Fabrication",
+      "Environmental Pollutant Detection",
+      "Electrochemical Analysis",
     ],
   },
 
   {
-    title: "Material Characterization",
     icon: Microscope,
-    items: [
-      "SEM",
-      "FTIR",
-      "Raman Spectroscopy",
+    title: "Characterization & Analysis",
+    description:
+      "Material characterization and electrochemical techniques used to understand structure, surface chemistry, and sensing behavior.",
+    skills: [
+      "SEM / TEM",
+      "XPS",
       "XRD",
-      "BET Surface Area",
+      "FTIR",
+      "BET",
+      "Cyclic Voltammetry (CV)",
+      "Electrochemical Impedance Spectroscopy (EIS)",
+      "DPV / SWV",
     ],
   },
 
   {
-    title: "Biomass Processing",
-    icon: Leaf,
-    items: [
-      "Biochar Synthesis",
-      "Nanobiochar Engineering",
-      "Pyrolysis",
-      "Ball Milling",
-      "Electrode Surface Modification",
-    ],
-  },
-
-  {
-    title: "Computational Chemistry",
-    icon: Atom,
-    items: [
-      "Density Functional Theory",
-      "Gaussian",
+    icon: Cpu,
+    title: "Computational & Data Science",
+    description:
+      "Computational chemistry and data-driven approaches supporting experimental research and mechanistic interpretation.",
+    skills: [
+      "Density Functional Theory (DFT)",
+      "Gaussian 16",
       "GaussView",
       "Multiwfn",
       "VMD",
-    ],
-  },
-
-  {
-    title: "Machine Learning",
-    icon: BrainCircuit,
-    items: [
-      "Random Forest",
-      "XGBoost",
-      "Artificial Neural Networks",
-      "Response Surface Methodology",
-    ],
-  },
-
-  {
-    title: "Programming & Analysis",
-    icon: Code2,
-    items: [
       "Python",
-      "OriginPro",
-      "Design Expert",
-      "Microsoft Excel",
+      "R",
+      "Machine Learning",
     ],
   },
 
   {
-    title: "Research Skills",
     icon: BookOpen,
-    items: [
+    title: "Research & Academic",
+    description:
+      "Academic research skills developed through interdisciplinary research, scientific communication, and collaborative work.",
+    skills: [
       "Scientific Writing",
       "Literature Review",
-      "Experimental Design",
-      "Academic Presentation",
-      "Data Interpretation",
+      "Research Data Analysis",
+      "Scientific Presentation",
+      "Research Methodology",
+      "Technical Communication",
+      "Academic Collaboration",
     ],
   },
 ];
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-28 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Heading */}
+    <section
+      id="skills"
+      className="bg-white py-24 sm:py-28"
+    >
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+
+        {/* ================= HEADER ================= */}
+
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          transition={{ duration: 0.6 }}
+          className="mx-auto mb-16 max-w-3xl text-center"
         >
-          <p className="uppercase tracking-[0.3em] text-emerald-600 font-semibold">
-            TECHNICAL EXPERTISE
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-600">
+            Technical Expertise
           </p>
 
-          <h2 className="text-5xl font-bold mt-3">
-            Research Skills & Laboratory Techniques
+          <h2 className="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            Skills & Research Tools
           </h2>
 
-          <p className="text-gray-600 max-w-3xl mx-auto mt-6 leading-8">
-            My research combines electrochemistry, biomass-derived materials,
-            computational chemistry, and machine learning to develop
-            sustainable sensing technologies for environmental and agricultural
-            applications.
+          <p className="mt-6 text-base leading-8 text-gray-600 sm:text-lg">
+            An interdisciplinary skill set combining experimental research,
+            functional material development, electrochemical analysis,
+            computational chemistry, and data-driven methods.
           </p>
         </motion.div>
 
-        {/* Cards */}
-        <div className="grid lg:grid-cols-2 gap-8">
-          {skills.map((skill, index) => {
-            const Icon = skill.icon;
+        {/* ================= SKILL GROUPS ================= */}
+
+        <div className="grid gap-7 md:grid-cols-2">
+
+          {skillGroups.map((group, index) => {
+            const Icon = group.icon;
 
             return (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
+                key={group.title}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
-                whileHover={{ y: -6 }}
-                className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm hover:shadow-xl transition-all"
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.08,
+                }}
+                className="rounded-3xl border border-gray-200 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-emerald-200 hover:shadow-lg sm:p-8"
               >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 rounded-2xl bg-emerald-100 flex items-center justify-center">
-                    <Icon className="w-7 h-7 text-emerald-700" />
-                  </div>
 
-                  <h3 className="text-2xl font-bold">
-                    {skill.title}
-                  </h3>
+                {/* Icon */}
+
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gray-50 text-emerald-600">
+                  <Icon size={23} />
                 </div>
 
-                <div className="space-y-3">
-                  {skill.items.map((item) => (
-                    <div
-                      key={item}
-                      className="flex items-center gap-3"
+                {/* Title */}
+
+                <h3 className="mt-6 text-2xl font-bold text-gray-900">
+                  {group.title}
+                </h3>
+
+                {/* Description */}
+
+                <p className="mt-3 leading-7 text-gray-600">
+                  {group.description}
+                </p>
+
+                {/* Skills */}
+
+                <div className="mt-6 flex flex-wrap gap-2">
+
+                  {group.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm font-medium text-gray-700 transition-colors hover:border-emerald-200 hover:text-emerald-700"
                     >
-                      <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" />
-
-                      <span className="text-gray-700">
-                        {item}
-                      </span>
-                    </div>
+                      {skill}
+                    </span>
                   ))}
+
                 </div>
+
               </motion.div>
             );
           })}
+
         </div>
+
+        {/* ================= RESEARCH APPROACH ================= */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-10 rounded-3xl border border-gray-200 bg-gray-50 p-8 sm:p-10"
+        >
+
+          <div className="grid gap-8 lg:grid-cols-3">
+
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-600">
+                Research Approach
+              </p>
+
+              <h3 className="mt-3 text-2xl font-bold text-gray-900">
+                From Material to Mechanism
+              </h3>
+            </div>
+
+            <div className="lg:col-span-2">
+
+              <p className="leading-8 text-gray-600">
+                My research approach connects biomass conversion and
+                functional material engineering with experimental
+                electrochemistry, advanced characterization, computational
+                chemistry, and data analysis. This integrated approach helps
+                connect material structure and surface chemistry with
+                electrochemical sensing performance.
+              </p>
+
+            </div>
+
+          </div>
+
+        </motion.div>
+
       </div>
     </section>
   );
