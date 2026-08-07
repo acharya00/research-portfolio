@@ -2,13 +2,10 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { TypeAnimation } from "react-type-animation";
 import {
-  Github,
-  Linkedin,
   Mail,
-  BookOpen,
   ArrowDown,
+  BookOpen,
 } from "lucide-react";
 
 export default function Hero() {
@@ -19,97 +16,85 @@ export default function Hero() {
     >
       {/* Background Glow */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/4 top-1/4 h-72 w-72 rounded-full bg-cyan-500/10 blur-3xl" />
-        <div className="absolute right-1/4 bottom-1/4 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl" />
+        <div className="absolute left-0 top-0 h-96 w-96 rounded-full bg-cyan-500/10 blur-3xl" />
+        <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-blue-500/10 blur-3xl" />
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-6 py-24 lg:px-8">
+      {/* Main Container */}
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-6 py-24 sm:px-8 lg:px-10">
 
-        <div className="grid w-full grid-cols-1 items-center gap-16 lg:grid-cols-5">
+        <div className="grid w-full grid-cols-1 items-center gap-14 lg:grid-cols-5">
 
-          {/* ===================================================== */}
+          {/* ================================================== */}
           {/* LEFT SIDE */}
-          {/* ===================================================== */}
+          {/* ================================================== */}
 
           <motion.div
-            initial={{ opacity: 0, x: -60 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
             className="lg:col-span-3"
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
           >
-            {/* Small Identity */}
-            <div className="mb-6">
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-400">
-                M.Eng. Researcher
-              </p>
 
-              <p className="mt-2 text-sm text-gray-400">
-                M.Eng. Candidate @ Nanjing Agricultural University, China
-              </p>
-            </div>
+            {/* Identity */}
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-400">
+              M.Eng. Researcher
+            </p>
+
+            <p className="mt-2 text-sm text-gray-400">
+              M.Eng. Candidate @ Nanjing Agricultural University, China
+            </p>
 
             {/* Name */}
-            <h1 className="text-5xl font-black leading-[0.95] tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
+            <h1 className="mt-7 text-5xl font-extrabold tracking-tight sm:text-6xl md:text-7xl">
               DILLI RAM
               <br />
               <span className="text-cyan-400">ACHARYA</span>
             </h1>
 
             {/* Professional Title */}
-            <h2 className="mt-7 text-xl font-semibold text-gray-200 sm:text-2xl md:text-3xl">
+            <h2 className="mt-6 text-2xl font-semibold text-gray-200 sm:text-3xl">
               Agricultural &amp; Biosystems Engineer
             </h2>
 
-            {/* Animated Research Identity */}
-            <div className="mt-4 min-h-[36px] text-lg font-medium text-cyan-400 sm:text-xl">
-              <TypeAnimation
-                sequence={[
-                  "Developing Biomass-Derived Functional Materials",
-                  2500,
-                  "Electrochemical Sensor Researcher",
-                  2500,
-                  "Biochar & Biomass Valorization Researcher",
-                  2500,
-                  "Environmental Monitoring Researcher",
-                  2500,
-                  "Future Research Scientist",
-                  2500,
-                ]}
-                wrapper="span"
-                speed={45}
-                repeat={Infinity}
-              />
-            </div>
-
             {/* Research Description */}
-            <p className="mt-7 max-w-2xl text-base leading-8 text-gray-400 sm:text-lg">
-              My research focuses on converting biomass waste into valuable
-              functional materials for environmental applications. I work at
-              the intersection of biomass valorization, biochar engineering,
-              chemical sensors, electrochemical sensing, environmental
-              monitoring, material characterization, Density Functional
-              Theory (DFT), and machine learning.
+            <p className="mt-6 max-w-2xl text-base leading-8 text-gray-400 sm:text-lg">
+              Developing biomass-derived functional materials for
+              electrochemical sensing, environmental monitoring, and
+              sustainable resource recovery. My research combines biomass
+              valorization, biochar engineering, material characterization,
+              chemical sensors, Density Functional Theory (DFT), and
+              machine learning.
             </p>
 
-            {/* Research Keywords */}
-            <div className="mt-7 flex max-w-2xl flex-wrap gap-2">
-              {[
-                "Biomass Valorization",
-                "Biochar",
-                "Chemical Sensors",
-                "Electrochemical Sensing",
-                "Environmental Monitoring",
-                "DFT",
-                "Machine Learning",
-              ].map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1.5 text-xs font-medium text-gray-300 transition hover:border-cyan-400 hover:text-cyan-400"
-                >
-                  {item}
-                </span>
-              ))}
+            {/* Research Interests */}
+            <div className="mt-7">
+
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">
+                Research Interests
+              </p>
+
+              <div className="flex flex-wrap gap-2">
+
+                {[
+                  "Biomass Valorization",
+                  "Biochar",
+                  "Chemical Sensors",
+                  "Electrochemical Sensing",
+                  "Environmental Monitoring",
+                  "DFT",
+                  "Machine Learning",
+                  "Sustainable Materials",
+                ].map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-slate-700 px-3 py-1.5 text-xs text-gray-300 transition hover:border-cyan-400 hover:text-cyan-400"
+                  >
+                    {item}
+                  </span>
+                ))}
+
+              </div>
             </div>
 
             {/* Buttons */}
@@ -118,23 +103,31 @@ export default function Hero() {
               <a
                 href="/cv.pdf"
                 download
-                className="rounded-xl bg-cyan-400 px-7 py-3.5 font-semibold text-slate-950 transition duration-300 hover:scale-105 hover:bg-cyan-300"
+                className="rounded-lg bg-cyan-400 px-7 py-3.5 font-semibold text-slate-950 transition hover:bg-cyan-300"
               >
                 Download CV
               </a>
 
               <a
                 href="#publications"
-                className="rounded-xl border border-cyan-400 px-7 py-3.5 font-semibold text-cyan-400 transition duration-300 hover:bg-cyan-400 hover:text-slate-950"
+                className="rounded-lg border border-cyan-400 px-7 py-3.5 font-semibold text-cyan-400 transition hover:bg-cyan-400 hover:text-slate-950"
               >
                 View Publications
+              </a>
+
+              <a
+                href="#contact"
+                className="rounded-lg border border-slate-700 px-7 py-3.5 font-semibold text-gray-300 transition hover:border-cyan-400 hover:text-cyan-400"
+              >
+                Get in Touch
               </a>
 
             </div>
 
             {/* Social Links */}
-            <div className="mt-9 flex items-center gap-5">
+            <div className="mt-8 flex items-center gap-5">
 
+              {/* LinkedIn */}
               <a
                 href="https://www.linkedin.com/in/dilli-ram-acharya"
                 target="_blank"
@@ -142,9 +135,12 @@ export default function Hero() {
                 aria-label="LinkedIn"
                 className="text-gray-400 transition hover:text-cyan-400"
               >
-                <Linkedin size={22} />
+                <span className="text-sm font-bold">
+                  in
+                </span>
               </a>
 
+              {/* GitHub */}
               <a
                 href="https://github.com/acharya00"
                 target="_blank"
@@ -152,9 +148,25 @@ export default function Hero() {
                 aria-label="GitHub"
                 className="text-gray-400 transition hover:text-cyan-400"
               >
-                <Github size={22} />
+                <span className="text-sm font-bold">
+                  GH
+                </span>
               </a>
 
+              {/* ORCID */}
+              <a
+                href="https://orcid.org/0009-0007-1035-5461"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="ORCID"
+                className="text-gray-400 transition hover:text-cyan-400"
+              >
+                <span className="text-sm font-bold">
+                  iD
+                </span>
+              </a>
+
+              {/* Google Scholar */}
               <a
                 href="https://scholar.google.com/citations?user=je6n7bYAAAAJ&hl=en"
                 target="_blank"
@@ -162,71 +174,170 @@ export default function Hero() {
                 aria-label="Google Scholar"
                 className="text-gray-400 transition hover:text-cyan-400"
               >
-                <BookOpen size={22} />
+                <BookOpen size={20} />
               </a>
 
+              {/* Email */}
               <a
                 href="mailto:dilliacharya63@gmail.com"
                 aria-label="Email"
                 className="text-gray-400 transition hover:text-cyan-400"
               >
-                <Mail size={22} />
+                <Mail size={20} />
               </a>
 
             </div>
+
           </motion.div>
 
-          {/* ===================================================== */}
+
+          {/* ================================================== */}
           {/* RIGHT SIDE */}
-          {/* ===================================================== */}
+          {/* ================================================== */}
 
           <motion.div
-            initial={{ opacity: 0, x: 60, scale: 0.9 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{ duration: 0.9 }}
-            className="flex justify-center lg:col-span-2"
+            className="lg:col-span-2"
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            <div className="relative">
 
-              {/* Outer Glow */}
-              <div className="absolute -inset-8 rounded-full bg-cyan-500/10 blur-3xl" />
+            <div className="relative mx-auto max-w-md">
 
-              {/* Image Ring */}
-              <div className="relative rounded-full border border-cyan-400/30 bg-slate-900 p-3 shadow-2xl">
+              {/* Glow */}
+              <div className="pointer-events-none absolute -inset-6 rounded-3xl bg-cyan-500/10 blur-3xl" />
 
-                <Image
-                  src="/profile.png"
-                  alt="Dilli Ram Acharya"
-                  width={420}
-                  height={420}
-                  priority
-                  className="h-[280px] w-[280px] rounded-full object-cover sm:h-[340px] sm:w-[340px] lg:h-[390px] lg:w-[390px]"
-                />
+              {/* Single Profile Card */}
+              <div className="relative rounded-3xl border border-slate-700 bg-slate-900/90 p-7 shadow-2xl backdrop-blur">
 
-              </div>
+                {/* Profile Image */}
+                <div className="flex justify-center">
 
-              {/* Small Research Badge */}
-              <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-slate-700 bg-slate-900/95 px-5 py-2.5 text-xs font-medium text-gray-300 shadow-xl backdrop-blur">
-                Biomass • Biochar • Sensors
+                  <div className="rounded-full border-4 border-cyan-400/70 p-1">
+
+                    <Image
+                      src="/profile.png"
+                      alt="Dilli Ram Acharya"
+                      width={190}
+                      height={190}
+                      priority
+                      className="h-[190px] w-[190px] rounded-full object-cover"
+                    />
+
+                  </div>
+
+                </div>
+
+                {/* Name */}
+                <div className="mt-6 text-center">
+
+                  <h3 className="text-2xl font-bold text-white">
+                    Dilli Ram Acharya
+                  </h3>
+
+                  <p className="mt-1 text-sm font-medium text-cyan-400">
+                    M.Eng. Scholar &amp; Agricultural Engineer
+                  </p>
+
+                </div>
+
+                {/* Divider */}
+                <div className="my-6 h-px bg-slate-700" />
+
+                {/* Details */}
+                <div className="space-y-5">
+
+                  {/* Location */}
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+                      Location
+                    </p>
+
+                    <p className="mt-1 text-sm text-gray-200">
+                      Nanjing, Jiangsu, China
+                    </p>
+                  </div>
+
+                  {/* Email */}
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+                      Email Address
+                    </p>
+
+                    <a
+                      href="mailto:dilliacharya63@gmail.com"
+                      className="mt-1 block break-all text-sm text-gray-200 hover:text-cyan-400"
+                    >
+                      dilliacharya63@gmail.com
+                    </a>
+                  </div>
+
+                  {/* Research */}
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+                      Research Focus
+                    </p>
+
+                    <p className="mt-1 text-sm leading-6 text-gray-200">
+                      Biomass-derived functional materials,
+                      biochar-based electrochemical sensors,
+                      and environmental monitoring.
+                    </p>
+                  </div>
+
+                  {/* Engineering */}
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+                      Engineering
+                    </p>
+
+                    <p className="mt-1 text-sm text-gray-200">
+                      Agricultural &amp; Biosystems Engineering
+                    </p>
+                  </div>
+
+                  {/* Languages */}
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+                      Languages
+                    </p>
+
+                    <p className="mt-1 text-sm leading-6 text-gray-200">
+                      Nepali • English • Hindi • Chinese
+                    </p>
+                  </div>
+
+                </div>
+
+                {/* Bottom Label */}
+                <div className="mt-7 rounded-xl border border-cyan-400/20 bg-cyan-400/5 px-4 py-3 text-center">
+
+                  <p className="text-xs font-medium text-cyan-400">
+                    Researcher • Engineer • Science Communicator
+                  </p>
+
+                </div>
+
               </div>
 
             </div>
+
           </motion.div>
 
         </div>
       </div>
 
       {/* Scroll Down */}
-      <motion.a
+      <a
         href="#about"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-7 left-1/2 z-20 -translate-x-1/2 text-gray-500 transition hover:text-cyan-400"
         aria-label="Scroll to About section"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 text-gray-500 transition hover:text-cyan-400"
       >
-        <ArrowDown className="animate-bounce" size={22} />
-      </motion.a>
+        <ArrowDown
+          size={22}
+          className="animate-bounce"
+        />
+      </a>
 
     </section>
   );
