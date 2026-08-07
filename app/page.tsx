@@ -5,8 +5,9 @@ import Projects from "./components/Projects";
 import Publications from "./components/Publications";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
-import Achievements from "./components/Achievements";
-import Skills from "./components/Skills";
+import Contact from "./components/Contact";
+import MediaJourney from "./components/MediaJourney";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -18,8 +19,9 @@ export default function Home() {
       <Publications />
       <Education />
       <Experience />
-      <Achievements />
-      <Skills />
+      <Contact />
+      <MediaJourney />
+      <Footer />
     </main>
   );
 }

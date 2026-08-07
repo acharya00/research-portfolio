@@ -1,150 +1,142 @@
 "use client";
 
-import {
-  Linkedin,
-  Github,
-  Mail,
-  ArrowUp,
-} from "lucide-react";
+import { motion } from "framer-motion";
 
-export default function Footer() {
-  const currentYear = new Date().getFullYear();
+const mediaPlatforms = [
+  {
+    name: "YouTube",
+    label: "Video & Learning",
+    description:
+      "Sharing educational content, research experiences, learning resources, travel, and experiences from my academic journey.",
+    url: "https://www.youtube.com/@learnwithdilli79",
+    accent: "text-red-500",
+    border: "hover:border-red-500/50",
+    button: "text-red-500",
+  },
+  {
+    name: "Facebook",
+    label: "Social & Community",
+    description:
+      "A space for academic activities, cultural experiences, travel, personal moments, and community engagement.",
+    url: "https://www.facebook.com/dillivlogs2025",
+    accent: "text-blue-500",
+    border: "hover:border-blue-500/50",
+    button: "text-blue-500",
+  },
+  {
+    name: "Dilli Vlogs",
+    label: "Personal Journey",
+    description:
+      "Documenting life beyond the laboratory — travel, culture, learning, experiences, and my journey as an international student and researcher.",
+    url: "https://www.youtube.com/@dillivlogs_2025",
+    accent: "text-cyan-500",
+    border: "hover:border-cyan-500/50",
+    button: "text-cyan-500",
+  },
+];
 
+export default function MediaJourney() {
   return (
-    <footer className="border-t border-gray-200 bg-gray-950 text-gray-300">
+    <section
+      id="media"
+      className="bg-white py-24"
+    >
+      <div className="mx-auto max-w-7xl px-6">
 
-      <div className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
+        {/* ================= HEADER ================= */}
 
-        <div className="grid gap-10 md:grid-cols-3">
-
-          {/* IDENTITY */}
-
-          <div>
-            <h3 className="text-2xl font-bold text-white">
-              Dilli Ram Acharya
-            </h3>
-
-            <p className="mt-3 max-w-sm leading-7 text-gray-400">
-              Agricultural & Biosystems Engineer and researcher working
-              on biomass valorization, biochar, electrochemical sensing,
-              environmental monitoring, DFT, and machine learning.
-            </p>
-          </div>
-
-          {/* NAVIGATION */}
-
-          <div>
-            <h4 className="font-semibold text-white">
-              Explore
-            </h4>
-
-            <div className="mt-4 grid grid-cols-2 gap-y-3 text-sm">
-
-              <a href="#home" className="hover:text-emerald-400">
-                Home
-              </a>
-
-              <a href="#about" className="hover:text-emerald-400">
-                About
-              </a>
-
-              <a href="#research" className="hover:text-emerald-400">
-                Research
-              </a>
-
-              <a href="#projects" className="hover:text-emerald-400">
-                Projects
-              </a>
-
-              <a href="#publications" className="hover:text-emerald-400">
-                Publications
-              </a>
-
-              <a href="#education" className="hover:text-emerald-400">
-                Education
-              </a>
-
-              <a href="#experience" className="hover:text-emerald-400">
-                Experience
-              </a>
-
-              <a href="#skills" className="hover:text-emerald-400">
-                Skills
-              </a>
-
-              <a href="#blog" className="hover:text-emerald-400">
-                Blog
-              </a>
-
-              <a href="#contact" className="hover:text-emerald-400">
-                Contact
-              </a>
-
-            </div>
-          </div>
-
-          {/* CONNECT */}
-
-          <div>
-            <h4 className="font-semibold text-white">
-              Connect
-            </h4>
-
-            <div className="mt-4 space-y-3">
-
-              <a
-                href="mailto:dilliacharya63@gmail.com"
-                className="flex items-center gap-3 text-sm hover:text-emerald-400"
-              >
-                <Mail size={17} />
-                dilliacharya63@gmail.com
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/dilli-ram-acharya"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 text-sm hover:text-emerald-400"
-              >
-                <Linkedin size={17} />
-                LinkedIn
-              </a>
-
-              <a
-                href="https://github.com/acharya00"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 text-sm hover:text-emerald-400"
-              >
-                <Github size={17} />
-                GitHub
-              </a>
-
-            </div>
-          </div>
-
-        </div>
-
-        {/* BOTTOM */}
-
-        <div className="mt-12 flex flex-col justify-between gap-5 border-t border-gray-800 pt-7 sm:flex-row sm:items-center">
-
-          <p className="text-sm text-gray-500">
-            © {currentYear} Dilli Ram Acharya. All rights reserved.
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mx-auto mb-16 max-w-3xl text-center"
+        >
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-600">
+            MEDIA JOURNEY
           </p>
 
-          <a
-            href="#home"
-            className="flex items-center gap-2 text-sm text-gray-400 transition hover:text-emerald-400"
-          >
-            Back to top
-            <ArrowUp size={16} />
-          </a>
+          <h2 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
+            Beyond Research
+          </h2>
+
+          <p className="mt-6 leading-8 text-gray-600">
+            Research is an important part of my journey, but life also
+            extends beyond the laboratory. Through digital media, I share
+            experiences related to learning, travel, culture, academic life,
+            and personal growth.
+          </p>
+        </motion.div>
+
+        {/* ================= MEDIA CARDS ================= */}
+
+        <div className="grid gap-8 md:grid-cols-3">
+
+          {mediaPlatforms.map((platform, index) => (
+            <motion.a
+              key={platform.name}
+              href={platform.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 35 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.1,
+              }}
+              whileHover={{ y: -8 }}
+              className={`group rounded-3xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl ${platform.border}`}
+            >
+
+              {/* Platform Label */}
+
+              <p
+                className={`text-xs font-semibold uppercase tracking-[0.2em] ${platform.accent}`}
+              >
+                {platform.label}
+              </p>
+
+              {/* Platform Name */}
+
+              <h3 className="mt-4 text-2xl font-bold text-gray-900">
+                {platform.name}
+              </h3>
+
+              {/* Description */}
+
+              <p className="mt-5 leading-7 text-gray-600">
+                {platform.description}
+              </p>
+
+              {/* Link */}
+
+              <div
+                className={`mt-8 font-semibold transition group-hover:translate-x-1 ${platform.button}`}
+              >
+                Visit →
+              </div>
+
+            </motion.a>
+          ))}
 
         </div>
 
-      </div>
+        {/* ================= CLOSING ================= */}
 
-    </footer>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-16 text-center"
+        >
+          <p className="text-sm text-gray-500">
+            Connecting research, learning, creativity, and everyday life.
+          </p>
+        </motion.div>
+
+      </div>
+    </section>
   );
 }

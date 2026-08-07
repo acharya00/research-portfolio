@@ -1,30 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Mail,
-  MapPin,
-  Linkedin,
-  Github,
-  ExternalLink,
-  Send,
-} from "lucide-react";
+import { Mail, MapPin, ExternalLink, Send } from "lucide-react";
 
 const contactLinks = [
   {
-    icon: Linkedin,
     label: "LinkedIn",
     value: "Dilli Ram Acharya",
     href: "https://www.linkedin.com/in/dilli-ram-acharya",
   },
   {
-    icon: Github,
     label: "GitHub",
     value: "acharya00",
     href: "https://github.com/acharya00",
   },
   {
-    icon: ExternalLink,
     label: "ORCID",
     value: "0009-0007-1035-5461",
     href: "https://orcid.org/0009-0007-1035-5461",
@@ -39,7 +29,7 @@ export default function Contact() {
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
-        {/* HEADER */}
+        {/* ================= HEADER ================= */}
 
         <motion.div
           initial={{ opacity: 0, y: 25 }}
@@ -53,27 +43,28 @@ export default function Contact() {
           </p>
 
           <h2 className="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-            Let's Connect
+            Let&apos;s Connect
           </h2>
 
           <p className="mt-6 text-lg leading-8 text-gray-600">
             I am open to research collaboration, academic discussion,
-            scientific exchange, and opportunities related to sustainable
-            materials, electrochemical sensing, environmental monitoring,
-            and computational research.
+            scientific exchange, and professional opportunities related
+            to sustainable materials, electrochemical sensing,
+            environmental monitoring, and computational research.
           </p>
         </motion.div>
 
-        {/* CONTENT */}
+        {/* ================= MAIN GRID ================= */}
 
         <div className="grid gap-10 lg:grid-cols-5">
 
-          {/* LEFT */}
+          {/* ================= LEFT ================= */}
 
           <motion.div
             initial={{ opacity: 0, x: -25 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="lg:col-span-2"
           >
             <div className="rounded-3xl border border-gray-200 bg-gray-50 p-8 sm:p-10">
@@ -83,9 +74,9 @@ export default function Contact() {
               </h3>
 
               <p className="mt-4 leading-7 text-gray-600">
-                For research collaboration, academic communication, or
-                professional inquiries, feel free to contact me through
-                email or any of the platforms below.
+                For research collaboration, academic communication,
+                or professional inquiries, feel free to contact me
+                through email or connect through my academic profiles.
               </p>
 
               {/* EMAIL */}
@@ -94,7 +85,7 @@ export default function Contact() {
                 href="mailto:dilliacharya63@gmail.com"
                 className="mt-8 flex items-start gap-4 group"
               >
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white border border-gray-200 text-emerald-600 group-hover:border-emerald-300">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-gray-200 bg-white text-emerald-600 transition group-hover:border-emerald-300">
                   <Mail size={20} />
                 </div>
 
@@ -103,7 +94,7 @@ export default function Contact() {
                     Email
                   </p>
 
-                  <p className="mt-1 break-all font-medium text-gray-800 group-hover:text-emerald-600">
+                  <p className="mt-1 break-all font-medium text-gray-800 transition group-hover:text-emerald-600">
                     dilliacharya63@gmail.com
                   </p>
                 </div>
@@ -112,7 +103,7 @@ export default function Contact() {
               {/* LOCATION */}
 
               <div className="mt-6 flex items-start gap-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white border border-gray-200 text-emerald-600">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-gray-200 bg-white text-emerald-600">
                   <MapPin size={20} />
                 </div>
 
@@ -127,48 +118,47 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* SOCIAL LINKS */}
+              {/* PROFILE LINKS */}
 
               <div className="mt-8 space-y-3">
-                {contactLinks.map((link) => {
-                  const Icon = link.icon;
 
-                  return (
-                    <a
-                      key={link.label}
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-4 transition hover:border-emerald-300 hover:shadow-sm"
-                    >
-                      <Icon
-                        size={20}
-                        className="text-emerald-600"
-                      />
+                {contactLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between rounded-xl border border-gray-200 bg-white p-4 transition hover:border-emerald-300 hover:shadow-sm"
+                  >
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+                        {link.label}
+                      </p>
 
-                      <div>
-                        <p className="text-xs text-gray-500">
-                          {link.label}
-                        </p>
+                      <p className="mt-1 font-medium text-gray-800">
+                        {link.value}
+                      </p>
+                    </div>
 
-                        <p className="font-medium text-gray-800">
-                          {link.value}
-                        </p>
-                      </div>
-                    </a>
-                  );
-                })}
+                    <ExternalLink
+                      size={17}
+                      className="text-gray-400 transition group-hover:text-emerald-600"
+                    />
+                  </a>
+                ))}
+
               </div>
 
             </div>
           </motion.div>
 
-          {/* RIGHT */}
+          {/* ================= RIGHT ================= */}
 
           <motion.div
             initial={{ opacity: 0, x: 25 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="lg:col-span-3"
           >
             <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm sm:p-10">
@@ -178,8 +168,8 @@ export default function Contact() {
               </h3>
 
               <p className="mt-3 text-gray-600">
-                Have a research idea or collaboration opportunity?
-                I'd be happy to hear from you.
+                Have a research idea, collaboration opportunity, or
+                academic inquiry? I&apos;d be happy to hear from you.
               </p>
 
               <form
@@ -188,6 +178,8 @@ export default function Contact() {
                 encType="text/plain"
                 className="mt-8 space-y-6"
               >
+
+                {/* NAME + EMAIL */}
 
                 <div className="grid gap-6 sm:grid-cols-2">
 
@@ -204,8 +196,8 @@ export default function Contact() {
                       name="Name"
                       type="text"
                       required
-                      className="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 outline-none transition focus:border-emerald-500"
                       placeholder="Your name"
+                      className="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-900 outline-none transition focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
                     />
                   </div>
 
@@ -222,12 +214,14 @@ export default function Contact() {
                       name="Email"
                       type="email"
                       required
-                      className="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 outline-none transition focus:border-emerald-500"
                       placeholder="your@email.com"
+                      className="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-900 outline-none transition focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
                     />
                   </div>
 
                 </div>
+
+                {/* SUBJECT */}
 
                 <div>
                   <label
@@ -242,10 +236,12 @@ export default function Contact() {
                     name="Subject"
                     type="text"
                     required
-                    className="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 outline-none transition focus:border-emerald-500"
                     placeholder="Research collaboration"
+                    className="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-900 outline-none transition focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
                   />
                 </div>
+
+                {/* MESSAGE */}
 
                 <div>
                   <label
@@ -260,10 +256,12 @@ export default function Contact() {
                     name="Message"
                     rows={6}
                     required
-                    className="mt-2 w-full resize-none rounded-xl border border-gray-200 px-4 py-3 outline-none transition focus:border-emerald-500"
                     placeholder="Write your message..."
+                    className="mt-2 w-full resize-none rounded-xl border border-gray-200 px-4 py-3 text-gray-900 outline-none transition focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
                   />
                 </div>
+
+                {/* BUTTON */}
 
                 <button
                   type="submit"

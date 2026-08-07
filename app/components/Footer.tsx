@@ -1,112 +1,120 @@
 "use client";
 
-import {
-  Linkedin,
-  Github,
-  Mail,
-  ArrowUp,
-} from "lucide-react";
-
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="border-t border-gray-200 bg-gray-950 text-gray-300">
+    <footer className="border-t border-slate-800 bg-slate-950 text-white">
 
-      <div className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
+      <div className="mx-auto max-w-7xl px-6 py-14">
 
-        <div className="grid gap-10 md:grid-cols-3">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
 
-          {/* IDENTITY */}
+          {/* ================= IDENTITY ================= */}
 
           <div>
-            <h3 className="text-2xl font-bold text-white">
+            <h3 className="text-2xl font-bold">
               Dilli Ram Acharya
             </h3>
 
-            <p className="mt-3 max-w-sm leading-7 text-gray-400">
-              Agricultural & Biosystems Engineer and researcher working
-              on biomass valorization, biochar, electrochemical sensing,
-              environmental monitoring, DFT, and machine learning.
+            <p className="mt-4 leading-7 text-gray-400">
+              Agricultural & Biosystems Engineer
+              <br />
+              M.Eng. Researcher
+              <br />
+              Nanjing Agricultural University, China
+            </p>
+
+            <p className="mt-5 text-sm leading-6 text-gray-500">
+              Researching biomass valorization, biochar engineering,
+              electrochemical sensing, environmental monitoring,
+              computational analysis, and sustainable materials.
             </p>
           </div>
 
-          {/* NAVIGATION */}
+
+          {/* ================= EXPLORE ================= */}
 
           <div>
             <h4 className="font-semibold text-white">
               Explore
             </h4>
 
-            <div className="mt-4 grid grid-cols-2 gap-y-3 text-sm">
+            <div className="mt-5 space-y-3 text-sm text-gray-400">
 
-              <a href="#home" className="hover:text-emerald-400">
+              <a
+                href="#home"
+                className="block transition hover:text-cyan-400"
+              >
                 Home
               </a>
 
-              <a href="#about" className="hover:text-emerald-400">
+              <a
+                href="#about"
+                className="block transition hover:text-cyan-400"
+              >
                 About
               </a>
 
-              <a href="#research" className="hover:text-emerald-400">
+              <a
+                href="#research"
+                className="block transition hover:text-cyan-400"
+              >
                 Research
               </a>
 
-              <a href="#projects" className="hover:text-emerald-400">
-                Projects
-              </a>
-
-              <a href="#publications" className="hover:text-emerald-400">
+              <a
+                href="#publications"
+                className="block transition hover:text-cyan-400"
+              >
                 Publications
               </a>
 
-              <a href="#education" className="hover:text-emerald-400">
+              <a
+                href="#education"
+                className="block transition hover:text-cyan-400"
+              >
                 Education
               </a>
 
-              <a href="#experience" className="hover:text-emerald-400">
+              <a
+                href="#experience"
+                className="block transition hover:text-cyan-400"
+              >
                 Experience
               </a>
 
-              <a href="#skills" className="hover:text-emerald-400">
-                Skills
+              <a
+                href="#media"
+                className="block transition hover:text-cyan-400"
+              >
+                Media Journey
               </a>
 
-              <a href="#blog" className="hover:text-emerald-400">
-                Blog
-              </a>
-
-              <a href="#contact" className="hover:text-emerald-400">
+              <a
+                href="#contact"
+                className="block transition hover:text-cyan-400"
+              >
                 Contact
               </a>
 
             </div>
           </div>
 
-          {/* CONNECT */}
+
+          {/* ================= PROFESSIONAL ================= */}
 
           <div>
             <h4 className="font-semibold text-white">
-              Connect
+              Professional
             </h4>
 
-            <div className="mt-4 space-y-3">
-
-              <a
-                href="mailto:dilliacharya63@gmail.com"
-                className="flex items-center gap-3 text-sm hover:text-emerald-400"
-              >
-                <Mail size={17} />
-                dilliacharya63@gmail.com
-              </a>
+            <div className="mt-5 space-y-3 text-sm text-gray-400">
 
               <a
                 href="https://www.linkedin.com/in/dilli-ram-acharya"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-sm hover:text-emerald-400"
+                className="block transition hover:text-cyan-400"
               >
-                <Linkedin size={17} />
                 LinkedIn
               </a>
 
@@ -114,10 +122,88 @@ export default function Footer() {
                 href="https://github.com/acharya00"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-sm hover:text-emerald-400"
+                className="block transition hover:text-cyan-400"
               >
-                <Github size={17} />
                 GitHub
+              </a>
+
+              <a
+                href="https://orcid.org/0009-0007-1035-5461"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block transition hover:text-cyan-400"
+              >
+                ORCID
+              </a>
+
+              <a
+                href="mailto:dilliacharya63@gmail.com"
+                className="block transition hover:text-cyan-400"
+              >
+                Email
+              </a>
+
+            </div>
+          </div>
+
+
+          {/* ================= MEDIA ================= */}
+
+          <div>
+            <h4 className="font-semibold text-white">
+              Media
+            </h4>
+
+            <p className="mt-4 text-sm leading-6 text-gray-500">
+              Follow my academic, creative, travel, and personal journey
+              beyond the laboratory.
+            </p>
+
+            <div className="mt-5 space-y-3 text-sm text-gray-400">
+
+              {/* YOUTUBE */}
+
+              <a
+                href="https://www.youtube.com/@learnwithdilli79"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block transition hover:text-red-400"
+              >
+                YouTube
+              </a>
+
+
+              {/* FACEBOOK */}
+
+              <a
+                href="https://www.facebook.com/dillivlogs2025"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block transition hover:text-blue-400"
+              >
+                Facebook
+              </a>
+
+
+              {/* DILLI VLOGS */}
+
+              <a
+                href="https://www.youtube.com/@dillivlogs_2025"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block transition hover:text-cyan-400"
+              >
+                Dilli Vlogs
+              </a>
+
+
+              {/* MEDIA JOURNEY */}
+
+              <a
+                href="#media"
+                className="block transition hover:text-cyan-400"
+              >
+                Media Journey
               </a>
 
             </div>
@@ -125,21 +211,15 @@ export default function Footer() {
 
         </div>
 
-        {/* BOTTOM */}
 
-        <div className="mt-12 flex flex-col justify-between gap-5 border-t border-gray-800 pt-7 sm:flex-row sm:items-center">
+        {/* ================= COPYRIGHT ================= */}
+
+        <div className="mt-14 border-t border-slate-800 pt-8 text-center">
 
           <p className="text-sm text-gray-500">
-            © {currentYear} Dilli Ram Acharya. All rights reserved.
+            © {new Date().getFullYear()} Dilli Ram Acharya. All rights
+            reserved.
           </p>
-
-          <a
-            href="#home"
-            className="flex items-center gap-2 text-sm text-gray-400 transition hover:text-emerald-400"
-          >
-            Back to top
-            <ArrowUp size={16} />
-          </a>
 
         </div>
 
