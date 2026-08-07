@@ -1,182 +1,124 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { Menu, X, Download } from 'lucide-react'
+import { useEffect, useState } from "react";
 
 const navItems = [
-  { name: 'About', href: '#about' },
-  { name: 'Education', href: '#education' },
-  { name: 'Research', href: '#research' },
-  { name: 'Publications', href: '#publications' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Blog', href: '#blog' },
-  { name: 'Travel', href: '#travel' },
-  { name: 'Contact', href: '#contact' },
-]
+  { name: "Home", href: "#home" },
+  { name: "About", href: "#about" },
+  { name: "Research", href: "#research" },
+  { name: "Projects", href: "#projects" },
+  { name: "Publications", href: "#publications" },
+  { name: "Education", href: "#education" },
+  { name: "Experience", href: "#experience" },
+  { name: "Achievements", href: "#achievements" },
+  { name: "Blog", href: "#blog" },
+  { name: "Media", href: "#media" },
+  { name: "Contact", href: "#contact" },
+];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-  const [activeSection, setActiveSection] = useState('')
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 30)
+    const sections = navItems
+      .map((item) => document.querySelector(item.href))
+      .filter(Boolean);
 
-      const sections = navItems.map((item) =>
-        document.querySelector(item.href)
-      )
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleSection = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
-      sections.forEach((section, index) => {
-        if (!section) return
-
-        const top = (section as HTMLElement).offsetTop - 120
-        const height = (section as HTMLElement).offsetHeight
-
-        if (
-          window.scrollY >= top &&
-          window.scrollY < top + height
-        ) {
-          setActiveSection(navItems[index].href)
+        if (visibleSection) {
+          setActiveSection(visibleSection.target.id);
         }
-      })
-    }
+      },
+      {
+        rootMargin: "-20% 0px -60% 0px",
+        threshold: [0.1, 0.25, 0.5],
+      }
+    );
 
-    window.addEventListener('scroll', handleScroll)
+    sections.forEach((section) => observer.observe(section!));
 
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <header
-      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-        scrolled
-          ? 'bg-slate-950/80 backdrop-blur-xl shadow-lg border-b border-cyan-500/20'
-          : 'bg-transparent'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <header className="fixed left-0 right-0 top-0 z-50 border-b border-gray-200/80 bg-white/95 backdrop-blur-md">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+        
+        {/* ================= LOGO / NAME ================= */}
 
-        <div className="flex h-20 items-center justify-between">
+        <a
+          href="#home"
+          className="shrink-0 leading-tight"
+          onClick={() => setActiveSection("home")}
+        >
+          <span className="block text-lg font-bold tracking-tight text-gray-900">
+            Dilli Ram Acharya
+          </span>
 
-          {/* Logo */}
+          <span className="block text-xs font-medium text-gray-500">
+            M.Eng. Researcher
+          </span>
+        </a>
 
-          <Link href="/" className="group">
+        {/* ================= NAVIGATION ================= */}
 
-            <div className="flex flex-col">
+        <div className="hidden items-center gap-1 lg:flex">
+          {navItems.map((item) => {
+            const sectionId = item.href.replace("#", "");
+            const isActive = activeSection === sectionId;
 
-              <span className="text-2xl font-black tracking-widest text-cyan-400">
-                DRA
-              </span>
-
-              <span className="text-xs uppercase tracking-[0.35em] text-gray-400">
-                Research Portfolio
-              </span>
-
-            </div>
-
-          </Link>
-
-          {/* Desktop Menu */}
-
-          <nav className="hidden lg:flex items-center gap-7">
-
-            {navItems.map((item) => (
-              <Link
+            return (
+              <a
                 key={item.name}
                 href={item.href}
-                className={`relative text-sm font-medium transition-all duration-300
-
-                ${
-                  activeSection === item.href
-                    ? 'text-cyan-400'
-                    : 'text-gray-300 hover:text-cyan-400'
-                }
-
-                after:absolute
-                after:left-0
-                after:-bottom-1
-                after:h-[2px]
-                after:bg-cyan-400
-                after:transition-all
-                after:duration-300
-
-                ${
-                  activeSection === item.href
-                    ? 'after:w-full'
-                    : 'after:w-0 hover:after:w-full'
-                }
-                `}
+                className={`relative rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200 ${
+                  isActive
+                    ? "bg-gray-100 text-cyan-600"
+                    : "text-gray-600 hover:bg-gray-50 hover:text-cyan-600"
+                }`}
               >
                 {item.name}
-              </Link>
-            ))}
 
-          </nav>
+                {/* Active indicator */}
+                {isActive && (
+                  <span className="absolute bottom-1 left-1/2 h-0.5 w-5 -translate-x-1/2 rounded-full bg-cyan-500" />
+                )}
+              </a>
+            );
+          })}
+        </div>
 
-          {/* CV Button */}
+        {/* ================= MOBILE MENU ================= */}
 
-          <div className="hidden lg:flex items-center gap-4">
+        <div className="flex items-center lg:hidden">
+          <select
+            value={activeSection}
+            onChange={(e) => {
+              const section = e.target.value;
+              setActiveSection(section);
 
-            <a
-              href="/cv.pdf"
-              download
-              className="flex items-center gap-2 rounded-xl bg-cyan-500 px-5 py-2.5 text-sm font-semibold text-slate-900 transition hover:scale-105 hover:bg-cyan-400"
-            >
-              <Download size={16} />
-              Download CV
-            </a>
-
-          </div>
-
-          {/* Mobile Button */}
-
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden text-white"
+              document
+                .getElementById(section)
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-700 outline-none focus:border-cyan-400"
           >
-            {isOpen ? <X size={30} /> : <Menu size={30} />}
-          </button>
-
-        </div>
-
-      </div>
-
-      {/* Mobile Menu */}
-
-      {isOpen && (
-
-        <div className="lg:hidden bg-slate-950/95 backdrop-blur-xl border-t border-cyan-500/20">
-
-          <div className="flex flex-col px-6 py-5 space-y-5">
-
             {navItems.map((item) => (
-              <Link
+              <option
                 key={item.name}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="text-gray-300 hover:text-cyan-400 transition"
+                value={item.href.replace("#", "")}
               >
                 {item.name}
-              </Link>
+              </option>
             ))}
-
-            <a
-              href="/cv.pdf"
-              download
-              className="flex items-center justify-center gap-2 rounded-lg bg-cyan-500 py-3 font-semibold text-slate-900"
-            >
-              <Download size={18} />
-              Download CV
-            </a>
-
-          </div>
-
+          </select>
         </div>
-
-      )}
+      </nav>
     </header>
-  )
+  );
 }

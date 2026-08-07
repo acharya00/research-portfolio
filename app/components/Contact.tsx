@@ -1,33 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, MapPin, ExternalLink, Send } from "lucide-react";
-
-const contactLinks = [
-  {
-    label: "LinkedIn",
-    value: "Dilli Ram Acharya",
-    href: "https://www.linkedin.com/in/dilli-ram-acharya",
-  },
-  {
-    label: "ResearchGate",
-    value: "Dilli Ram Acharya",
-    href: "https://www.researchgate.net/profile/Dilli-Acharya",
-  },
-  {
-    label: "Google Scholar",
-    value: "Dilli Ram Acharya",
-    href: "https://scholar.google.com/citations?user=je6n7bYAAAAJ&hl=en",
-  },
-];
 
 export default function Contact() {
   return (
     <section
       id="contact"
-      className="bg-white py-24 sm:py-28"
+      className="bg-white py-24"
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-6">
 
         {/* ================= HEADER ================= */}
 
@@ -39,244 +20,309 @@ export default function Contact() {
           className="mx-auto mb-16 max-w-3xl text-center"
         >
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-600">
-            Contact
+            CONTACT
           </p>
 
-          <h2 className="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-            Let&apos;s Connect
+          <h2 className="mt-3 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            Let's Connect
           </h2>
 
-          <p className="mt-6 text-lg leading-8 text-gray-600">
-            I am open to research collaboration, academic discussion,
-            scientific exchange, and professional opportunities related
-            to sustainable materials, electrochemical sensing,
-            environmental monitoring, and computational research.
+          <p className="mt-6 leading-8 text-gray-600">
+            I welcome opportunities for research collaboration, academic
+            discussion, scientific exchange, and professional networking.
+            Feel free to get in touch.
           </p>
         </motion.div>
 
-        {/* ================= MAIN GRID ================= */}
 
-        <div className="grid gap-10 lg:grid-cols-5">
+        {/* ================= MAIN CONTENT ================= */}
 
-          {/* ================= LEFT ================= */}
+        <div className="grid gap-12 lg:grid-cols-2">
+
+
+          {/* ================= LEFT — CONTACT INFORMATION ================= */}
 
           <motion.div
-            initial={{ opacity: 0, x: -25 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-2"
+            className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm transition hover:shadow-lg sm:p-10"
           >
-            <div className="rounded-3xl border border-gray-200 bg-gray-50 p-8 sm:p-10">
 
-              <h3 className="text-2xl font-bold text-gray-900">
-                Contact Information
-              </h3>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600">
+              Get in Touch
+            </p>
 
-              <p className="mt-4 leading-7 text-gray-600">
-                For research collaboration, academic communication,
-                or professional inquiries, feel free to contact me
-                through email or connect through my academic profiles.
+            <h3 className="mt-4 text-3xl font-bold text-gray-900">
+              Academic & Research Collaboration
+            </h3>
+
+            <p className="mt-5 leading-8 text-gray-600">
+              Whether you are interested in research collaboration,
+              electrochemical sensing, biomass-derived materials,
+              environmental monitoring, or simply want to discuss
+              scientific ideas, I would be happy to connect.
+            </p>
+
+
+            {/* ================= EMAIL ================= */}
+
+            <div className="mt-10 border-t border-gray-200 pt-6">
+
+              <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+                Email
               </p>
-
-              {/* EMAIL */}
 
               <a
                 href="mailto:dilliacharya63@gmail.com"
-                className="mt-8 flex items-start gap-4 group"
+                className="mt-2 block text-lg font-medium text-gray-800 transition hover:text-emerald-600"
               >
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-gray-200 bg-white text-emerald-600 transition group-hover:border-emerald-300">
-                  <Mail size={20} />
-                </div>
-
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">
-                    Email
-                  </p>
-
-                  <p className="mt-1 break-all font-medium text-gray-800 transition group-hover:text-emerald-600">
-                    dilliacharya63@gmail.com
-                  </p>
-                </div>
+                dilliacharya63@gmail.com
               </a>
 
-              {/* LOCATION */}
+            </div>
 
-              <div className="mt-6 flex items-start gap-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-gray-200 bg-white text-emerald-600">
-                  <MapPin size={20} />
-                </div>
 
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">
-                    Location
-                  </p>
+            {/* ================= LOCATION ================= */}
 
-                  <p className="mt-1 font-medium text-gray-800">
-                    Nanjing, Jiangsu, China
-                  </p>
-                </div>
-              </div>
+            <div className="mt-7">
 
-              {/* PROFILE LINKS */}
+              <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+                Current Location
+              </p>
 
-              <div className="mt-8 space-y-3">
-
-                {contactLinks.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-between rounded-xl border border-gray-200 bg-white p-4 transition hover:border-emerald-300 hover:shadow-sm"
-                  >
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">
-                        {link.label}
-                      </p>
-
-                      <p className="mt-1 font-medium text-gray-800">
-                        {link.value}
-                      </p>
-                    </div>
-
-                    <ExternalLink
-                      size={17}
-                      className="text-gray-400 transition group-hover:text-emerald-600"
-                    />
-                  </a>
-                ))}
-
-              </div>
+              <p className="mt-2 text-gray-700">
+                Nanjing, Jiangsu, China
+              </p>
 
             </div>
+
+
+            {/* ================= UNIVERSITY ================= */}
+
+            <div className="mt-7">
+
+              <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+                Institution
+              </p>
+
+              <p className="mt-2 text-gray-700">
+                Nanjing Agricultural University
+              </p>
+
+            </div>
+
+
+            {/* ================= RESEARCH ================= */}
+
+            <div className="mt-7">
+
+              <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+                Research Focus
+              </p>
+
+              <p className="mt-2 leading-7 text-gray-700">
+                Biomass valorization · Biochar · Electrochemical sensing ·
+                Environmental monitoring · DFT · Machine learning
+              </p>
+
+            </div>
+
+
+            {/* ================= ACADEMIC LINKS ================= */}
+
+            <div className="mt-10 flex flex-wrap gap-3">
+
+              <a
+                href="https://www.linkedin.com/in/dilli-ram-acharya"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-lg border border-gray-200 px-4 py-2 text-sm text-gray-700 transition hover:border-emerald-500 hover:text-emerald-600"
+              >
+                LinkedIn
+              </a>
+
+              <a
+                href="https://www.researchgate.net/profile/Dilli-Acharya"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-lg border border-gray-200 px-4 py-2 text-sm text-gray-700 transition hover:border-emerald-500 hover:text-emerald-600"
+              >
+                ResearchGate
+              </a>
+
+              <a
+                href="https://scholar.google.com/citations?user=je6n7bYAAAAJ&hl=en&authuser=3"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-lg border border-gray-200 px-4 py-2 text-sm text-gray-700 transition hover:border-emerald-500 hover:text-emerald-600"
+              >
+                Google Scholar
+              </a>
+
+            </div>
+
           </motion.div>
 
-          {/* ================= RIGHT ================= */}
+
+          {/* ================= RIGHT — MESSAGE FORM ================= */}
 
           <motion.div
-            initial={{ opacity: 0, x: 25 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-3"
+            className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm transition hover:shadow-lg sm:p-10"
           >
-            <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm sm:p-10">
 
-              <h3 className="text-2xl font-bold text-gray-900">
-                Send a Message
-              </h3>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600">
+              MESSAGE
+            </p>
 
-              <p className="mt-3 text-gray-600">
-                Have a research idea, collaboration opportunity, or
-                academic inquiry? I&apos;d be happy to hear from you.
-              </p>
+            <h3 className="mt-4 text-3xl font-bold text-gray-900">
+              Send a Message
+            </h3>
 
-              <form
-                action="mailto:dilliacharya63@gmail.com"
-                method="post"
-                encType="text/plain"
-                className="mt-8 space-y-6"
-              >
+            <p className="mt-4 leading-7 text-gray-600">
+              For research collaboration, academic inquiries, or
+              professional opportunities, you can send me a message below.
+            </p>
 
-                {/* NAME + EMAIL */}
 
-                <div className="grid gap-6 sm:grid-cols-2">
+            {/* ================= FORM ================= */}
 
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="text-sm font-semibold text-gray-700"
-                    >
-                      Name
-                    </label>
+            <form
+              action="mailto:dilliacharya63@gmail.com"
+              method="post"
+              encType="text/plain"
+              className="mt-8 space-y-6"
+            >
 
-                    <input
-                      id="name"
-                      name="Name"
-                      type="text"
-                      required
-                      placeholder="Your name"
-                      className="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-900 outline-none transition focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
-                    />
-                  </div>
+              {/* NAME */}
 
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="text-sm font-semibold text-gray-700"
-                    >
-                      Email
-                    </label>
+              <div>
 
-                    <input
-                      id="email"
-                      name="Email"
-                      type="email"
-                      required
-                      placeholder="your@email.com"
-                      className="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-900 outline-none transition focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
-                    />
-                  </div>
-
-                </div>
-
-                {/* SUBJECT */}
-
-                <div>
-                  <label
-                    htmlFor="subject"
-                    className="text-sm font-semibold text-gray-700"
-                  >
-                    Subject
-                  </label>
-
-                  <input
-                    id="subject"
-                    name="Subject"
-                    type="text"
-                    required
-                    placeholder="Research collaboration"
-                    className="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-900 outline-none transition focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
-                  />
-                </div>
-
-                {/* MESSAGE */}
-
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="text-sm font-semibold text-gray-700"
-                  >
-                    Message
-                  </label>
-
-                  <textarea
-                    id="message"
-                    name="Message"
-                    rows={6}
-                    required
-                    placeholder="Write your message..."
-                    className="mt-2 w-full resize-none rounded-xl border border-gray-200 px-4 py-3 text-gray-900 outline-none transition focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
-                  />
-                </div>
-
-                {/* BUTTON */}
-
-                <button
-                  type="submit"
-                  className="inline-flex items-center gap-2 rounded-xl bg-gray-900 px-6 py-3.5 font-semibold text-white transition hover:-translate-y-0.5 hover:bg-emerald-600"
+                <label
+                  htmlFor="name"
+                  className="mb-2 block text-sm font-medium text-gray-700"
                 >
-                  <Send size={18} />
-                  Send Message
-                </button>
+                  Your Name
+                </label>
 
-              </form>
+                <input
+                  id="name"
+                  name="Name"
+                  type="text"
+                  required
+                  placeholder="Enter your name"
+                  className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-emerald-500 focus:bg-white"
+                />
 
-            </div>
+              </div>
+
+
+              {/* EMAIL */}
+
+              <div>
+
+                <label
+                  htmlFor="email"
+                  className="mb-2 block text-sm font-medium text-gray-700"
+                >
+                  Email Address
+                </label>
+
+                <input
+                  id="email"
+                  name="Email"
+                  type="email"
+                  required
+                  placeholder="you@example.com"
+                  className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-emerald-500 focus:bg-white"
+                />
+
+              </div>
+
+
+              {/* SUBJECT */}
+
+              <div>
+
+                <label
+                  htmlFor="subject"
+                  className="mb-2 block text-sm font-medium text-gray-700"
+                >
+                  Subject
+                </label>
+
+                <input
+                  id="subject"
+                  name="Subject"
+                  type="text"
+                  required
+                  placeholder="Research collaboration, inquiry, etc."
+                  className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-emerald-500 focus:bg-white"
+                />
+
+              </div>
+
+
+              {/* MESSAGE */}
+
+              <div>
+
+                <label
+                  htmlFor="message"
+                  className="mb-2 block text-sm font-medium text-gray-700"
+                >
+                  Message
+                </label>
+
+                <textarea
+                  id="message"
+                  name="Message"
+                  rows={6}
+                  required
+                  placeholder="Write your message..."
+                  className="w-full resize-none rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-emerald-500 focus:bg-white"
+                />
+
+              </div>
+
+
+              {/* BUTTON */}
+
+              <button
+                type="submit"
+                className="w-full rounded-xl bg-emerald-600 px-6 py-3.5 font-semibold text-white transition hover:-translate-y-0.5 hover:bg-emerald-700"
+              >
+                Send Message
+              </button>
+
+            </form>
+
           </motion.div>
 
         </div>
+
+
+        {/* ================= CLOSING ================= */}
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-16 text-center"
+        >
+
+          <p className="text-sm text-gray-500">
+            Open to meaningful scientific conversations and research
+            collaborations.
+          </p>
+
+        </motion.div>
 
       </div>
     </section>
