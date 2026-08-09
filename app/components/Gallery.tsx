@@ -37,6 +37,47 @@ const milestones = [
 
   {
     id: 1,
+    image: "/gallery/labgroup.jpg",
+    category: "Research & Labworks",
+    title: "Smart Biomass Materials and Equipment Group",
+    description:
+      "Research group of Smart Biomass Materials and Equipment Laboratory at Nanjing Agricultural University, representing my scientific research environment.",
+    keywords: [
+      "Research Group",
+      "Research",
+      "Biomass",
+      "Smart Sensing",
+    ],
+  },
+  {
+    id: 2,
+    image: "/gallery/expo.jpg",
+    title: "13th Jiangsu Agricultural Machinery Fair",
+    category: "Research & Labworks",
+    description:
+      "Exploring recent innovations in agricultural machinery, automation, and engineering technologies at the Jiangsu Agricultural Machinery Fair in Nanjing.",
+  keywords: [
+    "Agricultural Machinery",
+    "Innovation",
+    "Engineering",
+  ],
+},
+  {
+    id: 3,
+    image: "/gallery/sportsevent025.jpg",
+    title: "University Sports Event 2025",
+    category: "Academic Activities",
+    description:
+      "Representing the College of International Education as the flag bearer during the university sports event.",
+    keywords: [
+      "Sports",
+      "University Event",
+      "International Students",
+    ],
+  },
+
+  {
+    id: 4,
     image: "/gallery/milestone_1.jpg",
     category: "Achievements",
     title: "Perceiving China — Essay Writing Competition",
@@ -50,7 +91,7 @@ const milestones = [
     ],
   },
   {
-    id: 2,
+    id: 5,
     image: "/gallery/milestone_2.jpg",
     category: "Cultural Activities",
     title: "Cultural Visit to Qixia Mountain",
@@ -64,7 +105,7 @@ const milestones = [
     ],
   },
   {
-    id: 3,
+    id: 6,
     image: "/gallery/milestone_3.jpg",
     category: "Travel",
     title: "Exploring Shanghai",
@@ -73,7 +114,7 @@ const milestones = [
     keywords: ["Travel", "Shanghai", "China", "Exploration"],
   },
   {
-    id: 4,
+    id: 7,
     image: "/gallery/milestone_4.jpg",
     category: "Cultural Activities",
     title: "Exploring Taizhou",
@@ -82,7 +123,7 @@ const milestones = [
     keywords: ["Culture", "Taizhou", "China", "Exploration"],
   },
   {
-    id: 5,
+    id: 8,
     image: "/gallery/milestone_5.jpg",
     category: "Sports & Activities",
     title: "Road and Belt Badminton Competition 2026",
@@ -97,7 +138,7 @@ const milestones = [
     ],
   },
   {
-    id: 6,
+    id: 9,
     image: "/gallery/milestone_6.jpg",
     category: "Academic & Cultural",
     title: "Perceiving China — Yangzhou",
@@ -111,7 +152,7 @@ const milestones = [
     ],
   },
   {
-id: 7,
+id: 10,
 image: "/gallery/biomasssamples.jpg",
 category: "Research & Labworks",
 title: "Biomass Samples for Research",
@@ -125,38 +166,9 @@ keywords: [
 "Sustainable Materials",
 ],
 },
+
 {
-id: 8,
-image: "/gallery/pyrolysis.jpg",
-category: "Research & Labworks",
-title: "Biomass Pyrolysis",
-description:
-"Thermochemical conversion of biomass under controlled conditions to produce carbon-rich biochar for subsequent material characterization and electrochemical sensing applications.",
-keywords: [
-"Pyrolysis",
-"Biochar",
-"Thermal Conversion",
-"Biomass",
-"Carbon Materials",
-],
-},
-{
-id: 9,
-image: "/gallery/ballmilling.jpg",
-category: "Research & Labworks",
-title: "Ball Milling of Biochar",
-description:
-"Mechanical ball milling of biomass-derived biochar to modify particle size and surface characteristics and to develop functional carbon materials for environmental sensing applications.",
-keywords: [
-"Ball Milling",
-"Biochar",
-"Material Engineering",
-"Particle Size",
-"Nanobiochar",
-],
-},
-{
-id: 10,
+id: 11,
 image: "/gallery/biochar.jpg",
 category: "Research & Labworks",
 title: "Biomass-Derived Biochar",
@@ -170,38 +182,9 @@ keywords: [
 "Sensing",
 ],
 },
-{
-id: 11,
-image: "/gallery/electrode.jpg",
-category: "Research & Labworks",
-title: "Electrode Preparation",
-description:
-"Preparation and modification of electrodes using functional biomass-derived materials for electrochemical sensing experiments and environmental pollutant detection.",
-keywords: [
-"Electrode",
-"Electrochemical Sensor",
-"Electrode Modification",
-"Biochar",
-"Sensing",
-],
-},
+
 {
 id: 12,
-image: "/gallery/threeelectrode.jpg",
-category: "Research & Labworks",
-title: "Three-Electrode Electrochemical System",
-description:
-"Electrochemical experiments using a three-electrode configuration consisting of a working electrode, reference electrode, and counter electrode for controlled electrochemical measurements.",
-keywords: [
-"Three-Electrode System",
-"Working Electrode",
-"Reference Electrode",
-"Electrochemistry",
-"Sensor Research",
-],
-},
-{
-id: 13,
 image: "/gallery/workstation.jpg",
 category: "Research & Labworks",
 title: "Electrochemical Workstation",
@@ -214,6 +197,89 @@ keywords: [
 "DPV",
 "Electrochemical Analysis",
 ],
+},
+{
+  id: 13,
+  image: "/gallery/basecamp.jpg",
+  title: "Number Mountain Basecamp Hiking, Nepal",
+  category: "Travel",
+  keywords: [
+    "Nepal",
+    "Mountain Hiking",
+    "Adventure",
+    "Nature Exploration",
+    "Outdoor Experience",
+  ],
+  description:
+    "An adventure hiking experience to the basecamp of Number Mountain in Nepal, exploring Himalayan landscapes, natural ecosystems, and the connection between engineering, environment, and outdoor learning.",
+},
+
+
+{
+  id: 14,
+  image: "/gallery/beijing.jpg",
+  title: "Exploring the Great Wall of China",
+  category: "Travel",
+  keywords: [
+    "China",
+    "Historical Heritage",
+    "Great Wall",
+    "Cultural Exploration",
+    "International Experience",
+  ],
+  description:
+    "A cultural exploration visit to the Great Wall of China, experiencing one of the world's most remarkable historical landmarks and gaining insights into Chinese heritage and civilization.",
+},
+
+
+{
+  id: 15,
+  image: "/gallery/graduatehiking.jpg",
+  title: "NAU Graduate Student Hiking Activity at Purple Mountain",
+  category: "Academic Activities",
+  keywords: [
+    "Nanjing Agricultural University",
+    "Graduate Students",
+    "International Students",
+    "Academic Community",
+    "Student Life in China",
+  ],
+  description:
+    "A graduate student hiking activity organized with Chinese and international students from Nanjing Agricultural University, promoting cultural exchange, friendship, teamwork, and academic community engagement.",
+},
+
+
+{
+  id: 16,
+  image: "/gallery/suzhou.jpg",
+  title: "Suzhou Museum Cultural Visit",
+  category: "Cultural Activities",
+  keywords: [
+    "Suzhou",
+    "Chinese Culture",
+    "Museum Visit",
+    "Architecture",
+    "Cultural Heritage",
+  ],
+  description:
+    "Exploring Chinese history, traditional culture, modern architecture, and artistic heritage through a visit to Suzhou Museum, reflecting my interest in cultural learning during my international academic journey.",
+},
+
+
+{
+  id: 17,
+  image: "/gallery/thailand.jpg",
+  title: "Phi Phi Island Exploration, Thailand",
+  category: "Travel",
+  keywords: [
+    "Thailand",
+    "Phi Phi Island",
+    "Marine Environment",
+    "Travel Experience",
+    "Global Exposure",
+  ],
+  description:
+    "A travel experience exploring the natural beauty, marine environment, and cultural diversity of Phi Phi Island, Thailand, representing personal growth beyond academic research.",
 },
 ];
 

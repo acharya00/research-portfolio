@@ -6,7 +6,6 @@ import Experience from "./components/Experience";
 import Publications from "./components/Publications";
 import Research from "./components/Research";
 import Projects from "./components/Projects";
-import Achievements from "./components/Achievements";
 import Blog from "./components/Blog";
 import Gallery from "./components/Gallery";
 import Contact from "./components/Contact";
@@ -24,7 +23,6 @@ export default function Home() {
       <Publications />
       <Research />
       <Projects />  
-      <Achievements />
       <Blog />
       <Gallery />
       <Contact />
