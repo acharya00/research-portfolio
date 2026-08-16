@@ -9,7 +9,7 @@ import {
 
 const education = [
   {
-    year: "September2024 – July 2027",
+    year: "September 2024 – July 2027",
     degree: "Master of Engineering",
     field: "Agricultural Mechanization Engineering",
     university: "Nanjing Agricultural University",
@@ -29,7 +29,7 @@ const education = [
     status: "Proposed",
   },
   {
-    year: "Novemeber 2017 – July 2022",
+    year: "November 2017 – July 2022",
     degree: "Bachelor of Engineering",
     field: "Agricultural Engineering",
     university:

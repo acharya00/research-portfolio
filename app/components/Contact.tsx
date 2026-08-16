@@ -24,7 +24,7 @@ export default function Contact() {
           </p>
 
           <h2 className="mt-3 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-            Let's Connect
+            Let&apos;s Connect
           </h2>
 
           <p className="mt-6 leading-8 text-gray-600">
@@ -153,7 +153,7 @@ export default function Contact() {
               </a>
 
               <a
-                href="https://scholar.google.com/citations?user=je6n7bYAAAAJ&hl=en&authuser=3"
+                href="https://scholar.google.com/citations?user=je6n7bYAAAAJ&hl=en"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-lg border border-gray-200 px-4 py-2 text-sm text-gray-700 transition hover:border-emerald-500 hover:text-emerald-600"
@@ -193,11 +193,17 @@ export default function Contact() {
             {/* ================= FORM ================= */}
 
             <form
-              action="mailto:dilliacharya63@gmail.com"
-              method="post"
-              encType="text/plain"
+              action="https://formsubmit.co/dilliacharya63@gmail.com"
+              method="POST"
               className="mt-8 space-y-6"
             >
+              <input
+                type="hidden"
+                name="_subject"
+                value="New message from dilliramacharya.com"
+              />
+
+              <input type="text" name="_honey" className="hidden" />
 
               {/* NAME */}
 

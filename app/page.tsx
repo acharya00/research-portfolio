@@ -1,11 +1,12 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
+import Research from "./components/Research";
+import Publications from "./components/Publications";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
-import Publications from "./components/Publications";
-import Research from "./components/Research";
-import Projects from "./components/Projects";
+import Activities from "./components/Activities";
+import Skills from "./components/Skills";
 import Blog from "./components/Blog";
 import Gallery from "./components/Gallery";
 import Contact from "./components/Contact";
@@ -18,11 +19,12 @@ export default function Home() {
 
       <Hero />
       <About />
-      <Education />
-       <Experience />
-      <Publications />
       <Research />
-      <Projects />  
+      <Education />
+      <Experience />
+      <Publications />
+      <Skills />
+      <Activities />
       <Blog />
       <Gallery />
       <Contact />

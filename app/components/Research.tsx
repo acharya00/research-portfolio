@@ -11,45 +11,33 @@ const researchAreas = [
   },
   {
     symbol: '02',
-    title: 'Biochar Engineering',
+    title: 'Biochar Engineering & Characterization',
     description:
-      'Designing porous biomass-derived carbon materials through pyrolysis and advanced modification strategies.',
+      'Designing porous biomass-derived carbon materials through pyrolysis and modification, characterized by SEM, FTIR, Raman, XRD, and BET.',
   },
   {
     symbol: '03',
     title: 'Electrochemical Sensors',
     description:
-      'Developing affordable chemical sensors for environmental monitoring and food safety applications.',
+      'Developing affordable sensing platforms for environmental monitoring using biochar-modified electrodes and CV, DPV, SWV, and EIS techniques.',
   },
   {
     symbol: '04',
     title: 'Environmental Monitoring',
     description:
-      'Detection of heavy metals, nitrogen pollutants, and emerging contaminants in water and agricultural systems.',
+      'Detection of heavy metals, nitrogen pollutants, and emerging contaminants in water, soil, and agricultural systems.',
   },
   {
     symbol: '05',
-    title: 'Density Functional Theory',
+    title: 'DFT & Computational Analysis',
     description:
-      'Applying computational chemistry to investigate adsorption mechanisms and electronic structures of sensing materials.',
+      'Applying Density Functional Theory to investigate adsorption mechanisms, electronic structures, and sensing behavior of functional materials.',
   },
   {
     symbol: '06',
-    title: 'Machine Learning',
+    title: 'Machine Learning & Data Analysis',
     description:
-      'Integrating machine learning with electrochemical data and biomass research for predictive analysis.',
-  },
-  {
-    symbol: '07',
-    title: 'Material Characterization',
-    description:
-      'Characterizing functional materials using SEM, FTIR, Raman, XRD, BET, and electrochemical techniques.',
-  },
-  {
-    symbol: '08',
-    title: 'Sustainable Materials',
-    description:
-      'Designing environmentally friendly materials for sensing, resource recovery, and future energy storage technologies.',
+      'Integrating machine learning and data-driven methods with experimental research for predictive analysis and research optimization.',
   },
 ]
 
@@ -57,12 +45,9 @@ export default function Research() {
   return (
     <section
       id="research"
-      className="bg-gray-50 px-6 py-24 text-gray-900"
+      className="scroll-mt-24 bg-gray-50 px-6 py-24 text-gray-900"
     >
       <div className="mx-auto max-w-7xl">
-
-        {/* Header */}
-
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -86,10 +71,7 @@ export default function Research() {
           </p>
         </motion.div>
 
-        {/* Research Cards */}
-
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {researchAreas.map((item, index) => (
             <motion.div
               key={item.title}
@@ -100,24 +82,15 @@ export default function Research() {
               whileHover={{ y: -8 }}
               className="group rounded-3xl border border-gray-200 bg-white p-8 shadow-sm transition duration-300 hover:border-emerald-400 hover:shadow-xl"
             >
-
-              {/* Number */}
-
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-100 text-lg font-bold text-emerald-700 transition group-hover:bg-emerald-600 group-hover:text-white">
                 {item.symbol}
               </div>
 
-              <h3 className="mb-4 text-xl font-bold">
-                {item.title}
-              </h3>
+              <h3 className="mb-4 text-xl font-bold">{item.title}</h3>
 
-              <p className="leading-7 text-gray-600">
-                {item.description}
-              </p>
-
+              <p className="leading-7 text-gray-600">{item.description}</p>
             </motion.div>
           ))}
-
         </div>
       </div>
     </section>
