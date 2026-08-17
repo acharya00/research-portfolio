@@ -27,6 +27,8 @@ export default function Navbar() {
       .map((item) => document.getElementById(item.id))
       .filter(Boolean) as HTMLElement[];
 
+    if (sections.length === 0) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         const visibleSections = entries
@@ -48,11 +50,42 @@ export default function Navbar() {
     return () => observer.disconnect();
   }, []);
 
-  const handleNavigation = (
-    event: React.MouseEvent<HTMLAnchorElement>,
-    id: string
-  ) => {
-    event.preventDefault();
+  // When a user lands on the home page via a hash from another route
+  // (e.g. /#gallery), wait for layout to settle and scroll to the anchor.
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (window.location.pathname !== '/') return;
+    const hash = window.location.hash.replace('#', '');
+    if (!hash || !navItems.some((item) => item.id === hash)) return;
+    const tryScroll = () => {
+      const target = document.getElementById(hash);
+      if (!target || !headerRef.current) return false;
+      const navbarHeight = headerRef.current.getBoundingClientRect().height;
+      const position =
+        target.getBoundingClientRect().top + window.scrollY - navbarHeight;
+      window.scrollTo({ top: position, behavior: 'auto' });
+      return true;
+    };
+    if (!tryScroll()) {
+      const handle = window.setTimeout(tryScroll, 120);
+      return () => window.clearTimeout(handle);
+    }
+  }, []);
+
+  // Anchored section ids live on the home page. When the navbar is mounted on
+  // another route (e.g. /blog/[slug]) a plain `#id` does nothing, so we route
+  // every section click through the home page first and then scroll to the
+  // anchor once the page is mounted.
+  const navigateToSection = (id: string) => {
+    const onHome =
+      typeof window !== 'undefined' &&
+      (window.location.pathname === '/' || window.location.pathname === '');
+
+    if (!onHome) {
+      window.location.href = `/#${id}`;
+      return;
+    }
+
     const section = document.getElementById(id);
     if (!section || !headerRef.current) return;
 
@@ -63,6 +96,14 @@ export default function Navbar() {
     window.scrollTo({ top: position, behavior: 'smooth' });
     window.history.replaceState(null, '', `#${id}`);
     setMobileOpen(false);
+  };
+
+  const handleNavigation = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    id: string
+  ) => {
+    event.preventDefault();
+    navigateToSection(id);
   };
 
   return (

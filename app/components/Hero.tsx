@@ -3,17 +3,17 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import {
-  FileDown,
   MapPin,
   Mail,
   FlaskConical,
   BadgeCheck,
   Languages,
-  ArrowRight,
   BookOpen,
   GraduationCap,
+  ArrowDown,
+  Linkedin,
 } from 'lucide-react';
-import { fadeInLeft, fadeInRight, fadeInUp, VIEWPORT } from './ui/motion';
+import { fadeInLeft, fadeInRight, fadeInUp } from './ui/motion';
 
 const DEGREES = [
   {
@@ -46,76 +46,47 @@ export default function Hero() {
         <div className="absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-cyan-200/20 blur-3xl" />
       </div>
 
-      <div className="relative z-10 mx-auto grid min-h-screen w-full max-w-7xl items-center gap-12 px-6 py-24 lg:grid-cols-[58%_42%] lg:gap-8 lg:py-28">
+      <div className="relative z-10 mx-auto grid min-h-screen w-full max-w-7xl items-center gap-10 px-6 pt-28 pb-12 lg:grid-cols-[58%_42%] lg:gap-8 lg:pt-32 lg:pb-16">
         {/* LEFT */}
         <motion.div
           variants={fadeInLeft}
           initial="hidden"
           animate="visible"
           transition={{ duration: 0.7 }}
+          className="flex flex-col"
         >
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-600">
-            Agricultural & Biosystems Engineer
+            Agricultural &amp; Biosystems Engineer
           </p>
 
-          <h1 className="mt-6 text-5xl font-bold leading-[0.95] tracking-tight text-gray-900 sm:text-6xl md:text-7xl">
+          <h1 className="mt-5 text-5xl font-bold leading-[0.95] tracking-tight text-gray-900 sm:text-6xl md:text-7xl">
             Dilli Ram{' '}
             <span className="text-emerald-600">Acharya</span>
           </h1>
 
-          <p className="mt-4 text-lg font-semibold text-gray-700 sm:text-xl">
+          <p className="mt-3 text-lg font-semibold text-gray-700 sm:text-xl">
             M.Eng. Candidate · Nanjing Agricultural University, China
           </p>
 
-          <p className="mt-5 max-w-2xl text-sm leading-7 text-gray-600 sm:text-base">
+          <p className="mt-4 max-w-2xl text-sm leading-7 text-gray-600 sm:text-base">
             My research integrates biomass valorization, biochar engineering,
             material characterization, Density Functional Theory (DFT), and
             machine learning to develop affordable sensing platforms for water
             and soil pollutants.
           </p>
 
-          {/* CTAs */}
-          <div className="mt-7 flex flex-wrap gap-3">
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-1.5 rounded-xl bg-emerald-600 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-emerald-700"
-            >
-              Get in Touch
-              <ArrowRight size={16} />
-            </a>
-
-            <a
-              href="#publications"
-              className="inline-flex items-center gap-1.5 rounded-xl border border-emerald-600 px-6 py-3 text-sm font-semibold text-emerald-700 transition hover:-translate-y-0.5 hover:bg-emerald-50"
-            >
-              <BookOpen size={16} />
-              View Publications
-            </a>
-
-            <a
-              href="/cv.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-xl border border-gray-200 bg-white px-6 py-3 text-sm font-semibold text-gray-800 transition hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-sm"
-            >
-              <FileDown size={16} />
-              Download CV
-            </a>
-          </div>
-
-          {/* DEGREE CARDS */}
+          {/* EDUCATION DETAILS — moved up into the hero */}
           <motion.dl
             variants={fadeInUp}
             initial="hidden"
             animate="visible"
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={VIEWPORT}
-            className="mt-10 grid max-w-2xl gap-4 sm:grid-cols-2"
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="mt-7 grid max-w-2xl gap-3 sm:grid-cols-2"
           >
             {DEGREES.map((d) => (
               <div
                 key={d.degree}
-                className={`rounded-2xl border p-5 shadow-sm transition ${
+                className={`rounded-2xl border p-4 shadow-sm transition ${
                   d.current
                     ? 'border-emerald-200 bg-emerald-50/50'
                     : 'border-gray-200 bg-white'
@@ -123,13 +94,13 @@ export default function Hero() {
               >
                 <div className="flex items-center justify-between">
                   <div
-                    className={`flex h-9 w-9 items-center justify-center rounded-xl ${
+                    className={`flex h-8 w-8 items-center justify-center rounded-lg ${
                       d.current
                         ? 'bg-emerald-600 text-white'
                         : 'bg-gray-100 text-gray-600'
                     }`}
                   >
-                    <GraduationCap size={18} />
+                    <GraduationCap size={16} />
                   </div>
                   <span
                     className={`text-[10px] font-semibold uppercase tracking-wider ${
@@ -140,28 +111,54 @@ export default function Hero() {
                   </span>
                 </div>
 
-                <dt className="mt-4 text-xs font-semibold uppercase tracking-wider text-gray-500">
+                <dt className="mt-3 text-[10px] font-semibold uppercase tracking-wider text-gray-500">
                   {d.degree}
                 </dt>
-                <dd className="mt-1 text-base font-bold leading-snug text-gray-900">
+                <dd className="mt-1 text-sm font-bold leading-snug text-gray-900">
                   {d.field}
                 </dd>
-                <p className="mt-2 text-xs text-gray-600">
+                <p className="mt-1 text-xs text-gray-600">
                   {d.university} · {d.location}
                 </p>
               </div>
             ))}
           </motion.dl>
 
-          {/* ACADEMIC LINKS */}
-          <div className="mt-6 flex flex-wrap gap-2">
+          {/* PUSH DOWN — Get in Touch + CV anchors the bottom of the hero */}
+          <div className="mt-auto pt-8" />
+
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="flex flex-wrap gap-2.5">
+              <a
+                href="/cv.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-xl border border-gray-200 bg-white px-5 py-2.5 text-sm font-semibold text-gray-800 transition hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-sm"
+              >
+                <BookOpen size={15} />
+                Download CV
+              </a>
+            </div>
+
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-1.5 rounded-xl bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-emerald-700"
+            >
+              Get in Touch
+              <ArrowDown size={15} />
+            </a>
+          </div>
+
+          {/* ACADEMIC LINKS — compact, single line */}
+          <div className="mt-5 flex flex-wrap gap-2">
             <a
               href="https://www.linkedin.com/in/dilli-ram-acharya"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs text-gray-700 transition hover:border-emerald-500 hover:text-emerald-700"
+              aria-label="LinkedIn"
+              className="rounded-lg border border-gray-200 bg-white p-2 text-gray-700 transition hover:border-emerald-500 hover:text-emerald-700"
             >
-              LinkedIn
+              <Linkedin size={14} />
             </a>
             <a
               href="https://www.researchgate.net/profile/Dilli-Acharya"
@@ -197,7 +194,10 @@ export default function Hero() {
           className="flex justify-center lg:justify-end"
         >
           <div className="relative w-full max-w-sm">
-            <div className="absolute -inset-3 rounded-3xl bg-emerald-200/40 blur-2xl" aria-hidden />
+            <div
+              className="absolute -inset-3 rounded-3xl bg-emerald-200/40 blur-2xl"
+              aria-hidden
+            />
             <div className="relative rounded-3xl border border-gray-200 bg-white p-6 shadow-lg">
               <div className="flex justify-center">
                 <div className="overflow-hidden rounded-full border-4 border-emerald-500 shadow-md">
@@ -252,14 +252,6 @@ export default function Hero() {
             </div>
           </div>
         </motion.div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-4 left-1/2 hidden -translate-x-1/2 lg:block">
-        <div className="flex flex-col items-center gap-1 text-[10px] text-gray-500">
-          <span>Scroll</span>
-          <span className="animate-bounce text-base text-emerald-600">↓</span>
-        </div>
       </div>
     </section>
   );
